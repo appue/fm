@@ -1,5 +1,5 @@
 'use strict';
-Radio.controller('cMain', function (
+Fm.controller('cMain', function (
     $scope,
     $state,
 	$timeout,
