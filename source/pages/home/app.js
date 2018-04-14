@@ -9,12 +9,25 @@ Fm.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
 	 */
 	.state('fm.index', {
 		url: 'index.htm',
-    	views: {
-    		'': {
+		views: {
+			'': {
 				templateUrl: 'view/index.html',
 				controller: 'cIndex'
 			}
-    	}
+		}
+	})
+	/**
+	 * 架构目录说明
+	 * @method path
+	 */
+	.state('fm.path', {
+		url: 'path.htm',
+		views: {
+			'': {
+				templateUrl: 'view/path.html',
+				controller: 'cPath'
+			}
+		}
 	})
 	;
 	$urlRouterProvider.otherwise('index.htm');
