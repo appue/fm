@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js" ng-app="radio">
+<html class="no-js" ng-app="fm">
     <head>
         <!-- <base href="/" > -->
         <meta charset="utf-8" />
@@ -34,26 +34,21 @@
         <div ui-view="body"></div>
         <show-loading></show-loading>
         <show-error></show-error>
-        <page-reload ng-if="isDebug"></page-reload>
-        <pop-user-bind></pop-user-bind>
         <!-- build:js -->
 
         <!-- injectframe:js -->
         <script src="../../library/frame/angular.js"></script>
         <script src="../../library/frame/base64.js"></script>
-        <script src="../../library/frame/config.js"></script>
         <script src="../../library/frame/fastclick.js"></script>
-        <script src="../../library/frame/iscroll.js"></script>
+        <script src="../../library/frame/md5.js"></script>
         <script src="../../library/frame/script.js"></script>
-        <script src="../../library/frame/swiper-4.1.0.min.js"></script>
-        <script src="../../library/frame/zepto.min.js"></script>
         <script src="../../library/extend/angular-animate.js"></script>
         <script src="../../library/extend/angular-route.js"></script>
         <script src="../../library/extend/angular-sanitize.js"></script>
         <script src="../../library/extend/angular-touch.js"></script>
         <script src="../../library/extend/angular-ui-router.js"></script>
         <script src="../../library/extend/bindonce.js"></script>
-        <script src="../../library/extend/ng-iscroll.js"></script>
+        <script src="../../library/extend/ngDraggable.js"></script>
         <!-- endinject -->
 
         <!-- injectapp:js -->
@@ -63,59 +58,18 @@
 
         <!-- injectcommon:js -->
         <script src="../../main/main.js"></script>
-        <script src="../../common/filters/check.js"></script>
-        <script src="../../common/filters/filters.js"></script>
-        <script src="../../common/filters/html.js"></script>
-        <script src="../../common/filters/image.js"></script>
-        <script src="../../common/filters/number.js"></script>
-        <script src="../../common/filters/time.js"></script>
-        <script src="../../common/directives/component.js"></script>
-        <script src="../../common/directives/delegate_event.js"></script>
-        <script src="../../common/directives/down_app_activity.js"></script>
-        <script src="../../common/directives/down_app_footer.js"></script>
-        <script src="../../common/directives/down_app_header.js"></script>
-        <script src="../../common/directives/input_text.js"></script>
-        <script src="../../common/directives/ng_count.js"></script>
-        <script src="../../common/directives/page_header.js"></script>
-        <script src="../../common/directives/page_reload.js"></script>
-        <script src="../../common/directives/player.js"></script>
-        <script src="../../common/directives/pop_user_bind.js"></script>
-        <script src="../../common/directives/preview.image.js"></script>
-        <script src="../../common/directives/to_href.js"></script>
-        <script src="../../common/directives/view_audio.js"></script>
-        <script src="../../common/directives/view_header.js"></script>
-        <script src="../../common/directives/view_slideshow.js"></script>
-        <script src="../../common/directives/view_video.js"></script>
-        <script src="../../common/services/bridge.app.js"></script>
-        <script src="../../common/services/bridge.js"></script>
-        <script src="../../common/services/bridge.wx.js"></script>
+        <script src="../../common/components/delegate_event.js"></script>
         <script src="../../common/services/cache.js"></script>
-        <script src="../../common/services/check.js"></script>
         <script src="../../common/services/compute.js"></script>
         <script src="../../common/services/cookie.js"></script>
         <script src="../../common/services/http_interceptor.js"></script>
-        <script src="../../common/services/resolve.js"></script>
         <script src="../../common/services/storage.js"></script>
-        <script src="../../common/services/widget.js"></script>
-        <script src="common/album_edit_subject.js"></script>
         <!-- endinject -->
 
         <!-- inject:js -->
-        <script src="album/edit.js"></script>
-        <script src="audio/edit.js"></script>
-        <script src="rebroadcast/edit.js"></script>
-        <script src="test/index.js"></script>
+        <script src="views/index.js"></script>
         <!-- endinject -->
 
         <!-- endbuild -->
-        <script>
-        var _hmt = _hmt || [];
-        (function() {
-          var hm = document.createElement("script");
-          hm.src = "https://hm.baidu.com/hm.js?b93a2cd4a12ed66f456962e85920bc13";
-          var s = document.getElementsByTagName("script")[0];
-          s.parentNode.insertBefore(hm, s);
-        })();
-        </script>
     </body>
 </html>
