@@ -20,17 +20,6 @@ Fm.run(function (
 	$rootScope.isApple   = (/iphone|ipad|ipod/.test(ua)) ? true : false;
 	$rootScope.isAndroid = (/android/.test(ua)) ? true : false;
 
-	// 信息配置
-	$rootScope.setConfig = {
-		// 用户登录信息
-		user: {
-			auth: '', // 用户auth
-			uid: '', // 用户ID
-			name: '' // 用户名称
-		}
-	};
-	// $rootScope.screenWidth  = document.documentElement.clientWidth;
-	// $rootScope.screenHeight = document.documentElement.clientHeight;
 })
 .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
 	$stateProvider
@@ -43,11 +32,6 @@ Fm.run(function (
         		controller: 'cMain'
         	}
         },
-		// resolve: {
-		// 	den: function (appready) {
-		// 		return appready.den();
-		// 	}
-		// },
         onEnter: function ($rootScope) {
 			$rootScope.isContentLoaded = true;
         }
