@@ -1,8 +1,8 @@
 {
-  "name": "radio",
+  "name": "fm",
   "version": "1.0.0",
   "private": true,
-  "description": "ajmd",
+  "description": "fm",
   "main": "gulpfile.js",
   "devDependencies": {
     "gulp": "^3.9.1",
