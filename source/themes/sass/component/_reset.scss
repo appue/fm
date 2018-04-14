@@ -1,0 +1,105 @@
+* {
+	padding: 0;
+	margin: 0;
+	// -webkit-filter: grayscale(1);
+}
+html {
+	font-size: 62.5%;
+}
+body {
+	font-family: tahoma, arial, "Microsoft YaHei";
+	color: #333;
+	background: $bg_gray_light;
+	font-size: 1.2rem;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	// &.bg {
+	// 	// background: -webkit-linear-gradient(left, #1f1d2b 0, #1f1d2b $menu_width, #f0f0f0 $menu_width, #f0f0f0 100%);
+	// 	background: url(#{$path-images}bg_left.jpg) repeat-y 0 0 #f0f0f0;
+	// 	background-size: $menu_width auto;
+	// }
+}
+
+// ::-webkit-scrollbar {
+//     width: 0;
+// }
+i, em {
+	font-style: normal;
+}
+
+ul,li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	font-weight: normal;
+	font-size: 1.2rem;
+}
+input,button,textarea,select {
+	outline: none;
+}
+
+button {
+	border: none;
+	outline: none;
+	background: none;
+	cursor: pointer;
+	font-size: 1.2rem;
+	font-family: tahoma, arial, "Microsoft YaHei";
+}
+
+img {
+	border: none;
+}
+
+.mod_container {
+	padding-top: $height_header;
+	@include box-sizing();
+	@include position($height:100%, $width:100%);
+	@include box($align:stretch);
+	// @include position($width:100%, $height:100%, $left:0, $top:0);
+	&.ipad {
+		padding-top: 0;
+	}
+}
+
+
+.bg {
+	min-width: $min_width;
+	&.ipad {
+		min-width: 360px;
+	}
+	.mod_left {
+		// background: #1f1d2b;
+		// position: relative;
+		width: $menu_width;
+		&.ipad {
+			width: 0;
+		}
+	}
+
+	.mod_right {
+		// background: #f0f0f0;
+		// padding-top: 20px;
+		padding: 0 20px 20px;
+		-webkit-box-flex: 1;
+		min-width: 820px;
+		&.ipad {
+			min-width: 360px;
+		}
+		position: relative;
+		@include box-sizing();
+
+		.appue_scroll {
+			padding: 0 20px;
+			@include overflow-scroll();
+		}
+	}
+}
+
+// .ng-click-active {
+// 	color: $orange;
+// }

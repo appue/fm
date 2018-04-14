@@ -1,0 +1,121 @@
+// 地区选择器
+.appue_city_list {
+	.abox {
+		background: #fff;
+		font-size: 0;
+		p {
+			display: inline-block;
+			padding: 0 10px;
+			line-height: 30px;
+			font-size: 1.2rem;
+			margin-right: 10px;
+			cursor: pointer;
+			background: $green;
+			color: #fff;
+			position: relative;
+			margin-bottom: 10px;
+			&:after {
+				@include iconfont();
+				content: '\e603';
+				text-align: center;
+				background: #222;
+				color: #fff;
+				font-size: 1.2rem;
+				-webkit-transform: scale(0.6);
+				@include border-radius($radius:100%);
+				@include width-height-line(20px);
+				@include position($right:-6px, $top:-6px);
+			}
+		}
+	}
+
+	.alist {
+		background: rgba(0,0,0,0.4);
+		@include width-height(100%);
+		@include position($type:fixed, $left:0, $top:0, $index:100);
+		@include ng-animate($type:ifop, $time:.5s);
+
+		.bbox {
+			background: #fff;
+			border-top: 2px solid $green;
+			@include box-sizing();
+			@include position($left:50%, $top:50%, $mt:-250px, $ml:-200px, $width:400px, $height:500px, $index:100);
+			// @include position($left:0, $top:0, $width:100%, $height:100%, $index:100);
+			.ch2 {
+				// line-height: 40px;
+				font-size: 1.4rem;
+				color: #333;
+				background: #fff;
+				padding: 10px;
+				box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+				@include box-sizing();
+				@include position($left:0, $top:0, $width:100%, $index:2);
+				@include box($align:center, $pack:justify);
+				div {
+					@include box($align:center);
+				}
+			}
+			.cscroll {
+				padding: 40px 10px 70px;
+				@include box-sizing();
+				@include overflow-scroll();
+				.dlist {
+					h2 {
+						line-height: 40px;
+						font-weight: bolder;
+						border-bottom: 1px solid #eee;
+						// &.cur {
+						// 	color: $green;
+						// }
+						&.show {
+							
+						}
+						&.more {
+							position: relative;
+							&:after {
+								content: '\e627';
+								text-align: right;
+								font-size: 1.4rem;
+								color: #aaa;
+								@include iconfont();
+								@include width-height-line(20px);
+								@include position($right:0, $top:50%, $mt:-10px);
+							}
+						}
+						@include box($align:center);
+						.btn_gray_choose:before {
+							border-color: #ddd;
+							&.checked {
+								border-color: $orange;
+							}
+						}
+					}
+					&>div {
+						background: #f8f8f8;
+						padding: 10px;
+						font-size: 0;
+						p {
+							font-size: 1.2rem;
+							line-height: 30px;
+							margin-right: 10px;
+							display: inline-block;
+							cursor: pointer;
+							&.cur {
+								color: $orange;
+							}
+						}
+					}
+				}
+			}
+			.cbtn {
+				height: 60px;
+				background: #eee;
+				padding: 0 10px;
+				@include border-half($type:top);
+				@include box-sizing();
+				@include position($left:0, $bottom:0, $width:100%, $index:2);
+				@include box($align:center, $pack:justify);
+			}
+		}
+	}
+}
