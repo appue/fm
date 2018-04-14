@@ -1,0 +1,25 @@
+@font-face {
+    font-family: 'iconfont';
+    src: url('#{$fonts}iconfont.eot?1');
+    src: url('#{$fonts}iconfont.eot?1#iefix') format('embedded-opentype'),
+        url('#{$fonts}iconfont.ttf?1') format('truetype'),
+        url('#{$fonts}iconfont.woff?1') format('woff'),
+        url('#{$fonts}iconfont.svg?1#iconfont') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@import "sass/seed/mixin",
+
+    "sass/seed/component/_reset",
+    "sass/seed/component/_box",
+    "sass/seed/component/_color",
+    "sass/seed/component/_confirm",
+    "sass/seed/component/_font.size",
+    "sass/seed/component/_height",
+    "sass/seed/component/_line.height",
+    "sass/seed/component/_margin",
+    "sass/seed/component/_padding",
+    "sass/seed/component/_toast",
+    "sass/seed/component/_widget",
+    "sass/seed/component/_width";
