@@ -2,7 +2,7 @@
 
 const fs      = require('fs');
 const $util   = require('./tools/util.js');
-const $$ = require('./config.js');
+const $$      = require('./config.js');
 const argv    = require('yargs').argv;
 const version = new Date().getTime();
 const $dist   = $$.dist +'pages/';
