@@ -1,105 +1,87 @@
 * {
 	padding: 0;
 	margin: 0;
-	// -webkit-filter: grayscale(1);
+	-webkit-user-select: none;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	-webkit-tap-highlight-color: transparent;
 }
 html {
-	font-size: 62.5%;
+	// font-size: 62.5%;
+	font-size: 10px;
+	-webkit-text-size-adjust: 100%;
 }
 body {
-	font-family: tahoma, arial, "Microsoft YaHei";
+	font-size: 1.4rem;
+	width: 100%;
 	color: #333;
-	background: $bg_gray_light;
-	font-size: 1.2rem;
-	-webkit-tap-highlight-color: rgba(0,0,0,0);
-	// &.bg {
-	// 	// background: -webkit-linear-gradient(left, #1f1d2b 0, #1f1d2b $menu_width, #f0f0f0 $menu_width, #f0f0f0 100%);
-	// 	background: url(#{$path-images}bg_left.jpg) repeat-y 0 0 #f0f0f0;
-	// 	background-size: $menu_width auto;
-	// }
-}
+	background: #fff;
+	// font-family: sans-serif, Arial, "Lucida Grande", Verdana, inherit, "Microsoft YaHei", "Helvetica Neue", "Roboto", "Segoe UI", sans-serif;
+	font-family: sans-serif, Arial, "Lucida Grande", "Microsoft YaHei";
 
-// ::-webkit-scrollbar {
-//     width: 0;
-// }
-i, em {
-	font-style: normal;
+	-webkit-user-drag: none;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	-webkit-tap-highlight-color: transparent;
+	-webkit-font-smoothing: antialiased;
+	-webkit-user-select: none;
+	-webkit-touch-callout: none;
 }
+@media only screen and (min-width:360px){html{font-size:11.25px}}
+@media only screen and (min-width:375px){html{font-size:11.71875px}}
+@media only screen and (min-width:414px){html{font-size:12.9375px}}
+@media only screen and (min-width:768px){html{font-size:24.0px}}
+@media only screen and (min-width:960px){html{font-size:30.0px}}
 
-ul,li {
+big {
+	font-family: sans-serif,
+}
+h1,h2,h3,h4,h5 {
+    font-size: 1.4rem;
+	font-weight: normal;
+}
+ul, li {
 	list-style: none;
 }
-
+img {
+	border: 0;
+}
 a {
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	outline: none;
 	text-decoration: none;
 }
-
-h1,h2,h3,h4,h5,h6 {
-	font-weight: normal;
-	font-size: 1.2rem;
+input,
+select,
+textarea {
+	-webkit-user-select: text;
 }
-input,button,textarea,select {
+button,
+input,
+select,
+textarea {
 	outline: none;
+	border: 0;
+	font-size: 1.2rem;
+	@include border-radius($radius:0);
 }
-
+button,
+input,
+select {
+	-webkit-appearance: none;
+}
 button {
-	border: none;
-	outline: none;
+	display: block;
 	background: none;
-	cursor: pointer;
-	font-size: 1.2rem;
-	font-family: tahoma, arial, "Microsoft YaHei";
+	text-align: center;
+}
+input,
+textarea {
+	background: #fff;
 }
 
-img {
-	border: none;
+::-webkit-scrollbar {
+    width: 0;
 }
 
-.mod_container {
-	padding-top: $height_header;
-	@include box-sizing();
-	@include position($height:100%, $width:100%);
-	@include box($align:stretch);
-	// @include position($width:100%, $height:100%, $left:0, $top:0);
-	&.ipad {
-		padding-top: 0;
-	}
+i,em {
+	font-style: normal;
 }
-
-
-.bg {
-	min-width: $min_width;
-	&.ipad {
-		min-width: 360px;
-	}
-	.mod_left {
-		// background: #1f1d2b;
-		// position: relative;
-		width: $menu_width;
-		&.ipad {
-			width: 0;
-		}
-	}
-
-	.mod_right {
-		// background: #f0f0f0;
-		// padding-top: 20px;
-		padding: 0 20px 20px;
-		-webkit-box-flex: 1;
-		min-width: 820px;
-		&.ipad {
-			min-width: 360px;
-		}
-		position: relative;
-		@include box-sizing();
-
-		.appue_scroll {
-			padding: 0 20px;
-			@include overflow-scroll();
-		}
-	}
-}
-
-// .ng-click-active {
-// 	color: $orange;
-// }

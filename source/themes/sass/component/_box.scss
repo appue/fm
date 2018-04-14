@@ -1,0 +1,22 @@
+.mod_box {
+	display: -webkit-box;
+	&.center {
+		-webkit-box-align: center;
+	}
+	&.justify {
+		-webkit-box-pack: justify;
+	}
+	&.middle {
+		-webkit-box-pack: center;
+	}
+	.flex {
+		width: auto;
+		-webkit-box-flex: 1;
+	}
+	&.vertical {
+		-webkit-box-orient: vertical;
+		.flex {
+			-webkit-box-flex: 1;
+		}
+	}
+}

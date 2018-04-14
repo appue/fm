@@ -1,8 +1,12 @@
 ﻿/**
  * 半像素边框
- * @example:
- * @include border-half($type:bottom, $color: gray)
- * 灰色半像素底部边框
+ * @method border-half
+ * @param {[string]} $type  边框类型
+ * @param {[string]} $color 边框颜色（默认:gray）
+ * @example
+ *     @include border-half($type:bottom, $color: gray)
+ *     灰色半像素底部边框
+ *     不支持圆角
  */
 @mixin border-half(
 	$type: bottom,
@@ -31,14 +35,18 @@
 		border-width: 0;
 		border-#{$type}: 1px solid #dedede;
 	}
-	
-	-webkit-border-image: url(#{$path-images}border_half_#{$color}.png) 2 stretch;
+
+	-webkit-border-image: url(#{$images}border_half_#{$color}.png) 2 stretch;
 }
 
-
-
 /**
- *
+ * 普通直角边框
+ * @method border
+ * @param {[string]} $type  边框类型
+ * @param {[string]} $color 边框颜色
+ * @param {[string]} $size  边框尺寸
+ * @example
+ *     @include border-half($type:all, $color:#ccc, $size:1px);
  */
 @mixin border ($type:all, $color:$gray_border, $size:1px) {
     @if $type == all {
@@ -73,14 +81,20 @@
     }
 }
 
-
-// 圆角
+/**
+ * 圆角边框
+ * @method border-radius
+ * @param {[string]} $type   边框类型
+ * @param {[string]} $radius 圆角半径
+ * @example
+ *     @include border-radius($type:left, $radius:3px);
+ */
 @mixin border-radius ($type:null, $radius:5px) {
     @if $type == null {
         -webkit-border-radius: $radius;
                 border-radius: $radius;
     }
-    
+
     @if $type == left {
         -webkit-border-radius: $radius 0 0 $radius;
                 border-radius: $radius 0 0 $radius;
@@ -111,5 +125,3 @@
                 border-radius: $radius 0 $radius 0;
     }
 }
-
-

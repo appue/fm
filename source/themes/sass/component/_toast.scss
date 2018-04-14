@@ -1,0 +1,20 @@
+/**
+ * toast样式,渐变黑色半透明背景
+ * @method mod_toast
+ */
+.mod_toast {
+    text-align: center;
+    color: #fff;
+    padding-top: 10rem;
+    @include width-height(100%);
+    @include position($type:fixed, $left:0, $top:0, $index:9999);
+    @include box-sizing();
+    @include box($align:center, $orient:vertical);
+    span {
+        display: block;
+        padding: 10px;
+        line-height: 16px;
+        background: rgba(0, 0, 0, 0.7);
+        @include border-radius($radius:5px);
+    }
+}

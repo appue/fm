@@ -1,0 +1,82 @@
+/**
+ * 定位控制
+ * @method position
+ * @param {[string]} $width  控制元素宽度（非必须）
+ * @param {[string]} $height 控制元素高度（非必须）
+ * @param {[string]} $top    离顶部的距离（非必须）
+ * @param {[string]} $right  离右部的距离（非必须）
+ * @param {[string]} $bottom 离下部的距离（非必须）
+ * @param {[string]} $left   离左部的距离（非必须）
+ * @param {[string]} $index  权重值（非必须）
+ * @param {[string]} $type   定位类型（默认:absolute）
+ * @param {[string]} $mt     距离顶部距离（非必须）
+ * @param {[string]} $mr     距离右部距离（非必须）
+ * @param {[string]} $mb     距离下部距离（非必须）
+ * @param {[string]} $ml     距离左部距离（非必须）
+ * @example
+ *     @include position($left:0, $top:0, $width:100%, $height:100%, $index:99);
+ */
+@mixin position(
+    $width: null,
+    $height: null,
+
+    $top: null,
+    $right: null,
+    $bottom: null,
+    $left: null,
+
+    $index: null,
+
+    $type: absolute,
+
+    $mt: null,
+    $mr: null,
+    $mb: null,
+    $ml: null
+) {
+    position: $type;
+
+    @if $width != null {
+        width: $width;
+    }
+
+    @if $height != null {
+        height: $height;
+    }
+
+    @if $top != null {
+        top: $top;
+    }
+
+    @if $right != null {
+        right: $right;
+    }
+
+    @if $bottom != null {
+        bottom: $bottom;
+    }
+
+    @if $left != null {
+        left: $left;
+    }
+
+    @if $index != null {
+        z-index: $index;
+    }
+
+    @if $mt != null {
+        margin-top: $mt;
+    }
+
+    @if $mr != null {
+        margin-right: $mr;
+    }
+
+    @if $mb != null {
+        margin-bottom: $mb;
+    }
+
+    @if $ml != null {
+        margin-left: $ml;
+    }
+}

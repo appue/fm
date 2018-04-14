@@ -1,39 +1,19 @@
-// padding top bottom right left
-.p0   { padding: 0 !important; }
-.p10  { padding: 10px !important; }
-.p20  { padding: 20px !important; }
+.p10 { padding: 1.0rem !important; }
 
-.pt0  { padding-top: 0 !important; }
-.pt10 { padding-top: 10px !important; }
-.pt20 { padding-top: 20px !important; }
+.px10 { padding: 0 1.0rem !important; }
+.px20 { padding: 0 2.0rem !important; }
 
-.pb0  { padding-bottom: 0 !important; }
-.pb10 { padding-bottom: 10px !important; }
-.pb20 { padding-bottom: 20px !important; }
+.py10 { padding: 1.0rem 0 !important; }
+.py20 { padding: 2.0rem 0 !important; }
 
-.pr0  { padding-right: 0 !important; }
-.pr10 { padding-right: 10px !important; }
-.pr20 { padding-right: 20px !important; }
+.pt10 { padding-top: 1.0rem !important; }
+.pt20 { padding-top: 2.0rem !important; }
 
-.pl0  { padding-left: 0 !important; }
-.pl10 { padding-left: 10px !important; }
-.pl20 { padding-left: 20px !important; }
+.pb10 { padding-bottom: 1.0rem !important; }
+.pb20 { padding-bottom: 2.0rem !important; }
 
+.pr10 { padding-right: 1.0rem !important; }
+.pr20 { padding-right: 2.0rem !important; }
 
-.py10 {
-	padding-top: 10px !important;
-	padding-bottom: 10px !important;
-}
-.py20 {
-	padding-top: 20px !important;
-	padding-bottom: 20px !important;
-}
-
-.px10 {
-	padding-left: 10px !important;
-	padding-right: 10px !important;
-}
-.px20 {
-	padding-left: 20px !important;
-	padding-right: 20px !important;
-}
+.pl10 { padding-left: 1.0rem !important; }
+.pl20 { padding-left: 2.0rem !important; }

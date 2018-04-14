@@ -1,6 +1,6 @@
-// color
-.c_orange { color: $orange !important; }
-.c_green { color: $green !important; }
-.c_black { color: #333 !important; }
-.c_white { color: #fff !important; }
-.c_gray { color: #aaa !important; }
+.bg_orange { background:$orange; }
+.bg_white  { background:#fff; }
+
+
+.c_orange { color:$orange; }
+.c_white  { color:#fff; }
