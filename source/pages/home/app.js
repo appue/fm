@@ -11,7 +11,7 @@ Fm.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
 		url: 'index.htm',
 		views: {
 			'': {
-				templateUrl: 'view/index.html',
+				templateUrl: 'views/index.html',
 				controller: 'cIndex'
 			}
 		}
@@ -24,7 +24,7 @@ Fm.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
 		url: 'path.htm',
 		views: {
 			'': {
-				templateUrl: 'view/path.html',
+				templateUrl: 'views/path.html',
 				controller: 'cPath'
 			}
 		}

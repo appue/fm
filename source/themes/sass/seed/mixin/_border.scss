@@ -46,38 +46,38 @@
  * @param {[string]} $color 边框颜色
  * @param {[string]} $size  边框尺寸
  * @example
- *     @include border-half($type:all, $color:#ccc, $size:1px);
+ *     @include border-half($type:all, $color:#ccc, $size:1px, $line:solid);
  */
-@mixin border ($type:all, $color:$gray_border, $size:1px) {
+@mixin border ($type:all, $color:$gray_border, $size:1px, $line:solid) {
     @if $type == all {
-        border: $size solid $color;
+        border: $size $line $color;
     } @else if $type == y {
         border-width: 0;
-        border-top: $size solid $color;
-        border-bottom: $size solid $color;
+        border-top: $size $line $color;
+        border-bottom: $size $line $color;
     } @else if $type == x {
         border-width: 0;
-        border-left: $size solid $color;
-        border-right: $size solid $color;
+        border-left: $size $line $color;
+        border-right: $size $line $color;
     } @else if $type == tl {
         border-width: 0;
-        border-top: $size solid $color;
-        border-left: $size solid $color;
+        border-top: $size $line $color;
+        border-left: $size $line $color;
     } @else if $type == tr {
         border-width: 0;
-        border-top: $size solid $color;
-        border-right: $size solid $color;
+        border-top: $size $line $color;
+        border-right: $size $line $color;
     } @else if $type == bl {
         border-width: 0;
-        border-left: $size solid $color;
-        border-bottom: $size solid $color;
+        border-left: $size $line $color;
+        border-bottom: $size $line $color;
     } @else if $type == br {
         border-width: 0;
-        border-right: $size solid $color;
-        border-bottom: $size solid $color;
+        border-right: $size $line $color;
+        border-bottom: $size $line $color;
     } @else {
         border-width: 0;
-        border-#{$type}: $size solid $color;
+        border-#{$type}: $size $line $color;
     }
 }
 

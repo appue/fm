@@ -1,13 +1,6 @@
 'use strict';
 Fm.controller('cMain', function (
-    $scope,
-    $state,
-	$timeout,
-    $rootScope,
-    $stateParams,
-    $appueCookie,
-    $appueWidget,
-    $appueStorage
+    $scope
 ){
 	// if (!$rootScope.isWechat) return;
 
