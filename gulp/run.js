@@ -6,7 +6,7 @@ const run  = argv.run || ''; // dev|build
 module.exports = function (gulp, $) {
 	gulp.task('tmpl', ['minjs', 'pages_minjs'], () => {});
 
-	gulp.task('dev', ['sass', 'connect', 'watch']);
+	gulp.task('dev', ['sass', 'service', 'watch']);
 
 	gulp.task('build', ['movefiles', 'pages_replacehtml', 'movecss'], () => {
 		gulp.start('tmpl');

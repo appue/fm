@@ -1,6 +1,5 @@
 'use strict';
 
-const $q = require("q");
 const fs = require('fs');
 
 module.exports = {
