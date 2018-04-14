@@ -4,23 +4,11 @@ const $q = require("q");
 const fs = require('fs');
 
 module.exports = {
-	getType (type, callback) {
-		let self = this;
-        let deferred = $q.defer();
+	getType (callback) {
+		const self = this;
+		const dir = process.cwd() +'/source/pages';
 
-        let exclude = ['common', 'library', 'themes', 'main'];
-		let dir     = process.cwd() +'/source';
-
-        switch (type) {
-        	case 'pages':
-			case 'activity':
-        	case 'plugins':
-		        exclude = ['common'];
-				dir     +=  '/'+ type;
-        	break;
-        }
-
-        self.getProject(dir, exclude).then(arr => {
+        self.getProject(dir).then(arr => {
             arr.forEach((v, k) => {
             	callback({path: v});
             });

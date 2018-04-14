@@ -1,1 +1,4 @@
-window.isDebugCreate=true;
+window.apiDomain = '';
+window.apiSocket = {
+
+};

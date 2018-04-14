@@ -4,14 +4,11 @@ const os   = require('os');
 const run  = argv.run || ''; // dev|build
 
 module.exports = function (gulp, $) {
-	// gulp.task('tmpl', ['minjs', 'pages_minjs', 'activity_minjs', 'plugins_minjs'], function () {});
+	gulp.task('tmpl', ['minjs', 'pages_minjs'], () => {});
 
 	gulp.task('dev', ['sass', 'connect', 'watch']);
 
-	// gulp.task('build', ['movefiles', 'replacehtml', 'templates', 'movecss', 'json'], function () {
-	// 	gulp.start('tmpl');
-	// });
-	gulp.task('build', ['movefiles', 'replacehtml', 'movecss', 'json'], () => {
+	gulp.task('build', ['movefiles', 'pages_replacehtml', 'movecss'], () => {
 		gulp.start('tmpl');
 	});
 
@@ -27,7 +24,7 @@ module.exports = function (gulp, $) {
 		}
 	});
 
-	gulp.task('inject', ['inject']);
+	gulp.task('inject', ['pages_inject']);
 
-	gulp.task('tmp', ['common_templates', 'pages_templates', 'activity_templates', 'plugins_templates']);
+	gulp.task('tmp', ['common_templates', 'pages_templates']);
 };

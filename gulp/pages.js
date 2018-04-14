@@ -2,135 +2,118 @@
 
 const fs      = require('fs');
 const $util   = require('./tools/util.js');
-const $config = require('./config.js');
+const $$ = require('./config.js');
 const argv    = require('yargs').argv;
 const version = new Date().getTime();
-const $dist   = $config.dist +'pages/';
-const $code   = $config.source +'pages/';
+const $dist   = $$.dist +'pages/';
+const $code   = $$.source +'pages/';
 
 module.exports = function (gulp, $) {
-
-	gulp.task('replacehtml', () => {
-		$util.getType($name, (res) => {
-			let dir = res.path;
+	gulp.task('pages_replacehtml', () => {
+		$util.getType(res => {
+			const $prj = res.path;
 			let files = [
 					'../../library.js',
 					'seed.js?v='+ version,
 					'../../common.js?v='+ version
-					// '../'+ $name +'.js?v='+ version,
-					// 'common.js?v='+ version,
-
-					// 'index.js?v='+ version
 				];
 
-			fs.exists($config.source +'pages/'+ dir +'/common', exists => {
+			fs.exists($code + $prj +'/components', exists => {
 				let itemFiles = files;
-				let ifile;
+				let ifile = ['index.js?v='+ version];
 
-				if (exists) {
-					ifile = ['common.js?v='+ version,'index.js?v='+ version];
-				} else {
-					ifile = ['index.js?v='+ version];
-				}
+				if (exists) ifile = ['common.js?v='+ version].concat(ifile);
 
 				itemFiles = itemFiles.concat(ifile);
 
-				gulp.src($code + dir +'/index.html')
+				gulp.src($code + $prj +'/index.html')
 					.pipe($.htmlReplace({
 						'css': [
 							'../../themes/seed.css?v='+ version,
-							'../../themes/'+ $name +'.'+ dir +'.css?v='+ version
+							'../../themes/'+ $prj +'.css?v='+ version
 						],
 						'js': itemFiles
 					}))
-					.pipe($.replace(/\<base href="[^"]*?" \>/g, '<base href="/touch/'+ $name +'/'+ dir +'/" >'))
 					.pipe($.htmlmin({collapseWhitespace: true}))
-					.pipe(gulp.dest($dist + dir));
+					.pipe(gulp.dest($dist + $prj));
 			});
 		});
 	});
 
-	gulp.task('templates', () => {
-		$util.getType($name, (res) => {
-			let dir = res.path;
+	gulp.task('pages_templates', () => {
+		$util.getType(res => {
+			const $prj = res.path;
 
 			gulp.src([
-					$code + dir +'/**/*.html',
-					'!'+ $code + dir +'/common/**/*.html',
-					'!'+ $code + dir +'/index.html'
+					$code + $prj +'/**/*.html',
+					'!'+ $code + $prj +'/components/**/*.html',
+					'!'+ $code + $prj +'/index.html'
 				])
 				.pipe($.ngHtml2js({
-					moduleName: 'ajmd',
+					moduleName: 'fm',
 					prefix: ''
 				}))
-				.pipe(gulp.dest('./.tmp/'+ $name +'/'+ dir));
+				.pipe(gulp.dest('./.tmp/pages/'+ $prj));
 
 			gulp.src([
-					$code + dir +'/common/**/*.html'
+					$code + $prj +'/components/**/*.html'
 				])
 				.pipe($.ngHtml2js({
-					moduleName: 'ajmd',
-					prefix: './common/'
+					moduleName: 'fm',
+					prefix: './components/'
 				}))
-				.pipe(gulp.dest('./.tmp/'+ $name +'/'+ dir +'/common'));
+				.pipe(gulp.dest('./.tmp/pages/'+ $prj +'/components'));
 		});
 	});
 
-	gulp.task('minjs', () => {
-		gulp.src([
-	            './.tmp/'+ $name +'/common/**/*.js',
-	            $code +'common/**/*.js'
-			])
-			.pipe($.concat($name +'.js'))
-            .pipe($.ngAnnotate())
-            .pipe($.uglify())
-            .pipe(gulp.dest($dist));
-
-		$util.getType($name, (res) => {
-			let dir = res.path;
+	gulp.task('pages_minjs', () => {
+		$util.getType(res => {
+			const $prj = res.path;
 
 	        gulp.src([
-	        		$config.source +'library/app.js',
-	        		$code + dir +'/app.js'
+	        		$$.source +'library/app.js',
+	        		$code + $prj +'/app.js'
 	        	])
 	            .pipe($.concat('seed.js'))
 	            // .pipe($.replace(/..\/main\//g, ''))
 	            // .pipe($.ngAnnotate())
 	            .pipe($.uglify({mangle:false}))
-	            .pipe(gulp.dest($dist + dir));
+	            .pipe(gulp.dest($dist + $prj));
 
 	        gulp.src([
-	                './.tmp/'+ $name +'/'+ dir +'/common/**/*.js',
-	                $code + dir +'/common/**/*.js'
+	                './.tmp/pages/'+ $prj +'/components/**/*.js',
+	                $code + $prj +'/components/**/*.js'
 	            ])
 	            .pipe($.concat('common.js'))
 	            .pipe($.ngAnnotate())
 	            .pipe($.uglify())
-	            .pipe(gulp.dest($dist + dir));
+	            .pipe(gulp.dest($dist + $prj));
 
 	        gulp.src([
-	                './.tmp/'+ $name +'/'+ dir +'/**/*.js',
-	                '!./.tmp/'+ $name +'/'+ dir +'/common/**/*.js',
-	                $code + dir +'/**/*.js',
-	                '!'+ $code + dir +'/common/**/*.js',
-	                '!'+ $code + dir +'/app.js'
+	                './.tmp/pages/'+ $prj +'/**/*.js',
+	                '!./.tmp/pages/'+ $prj +'/components/**/*.js',
+	                $code + $prj +'/**/*.js',
+	                '!'+ $code + $prj +'/components/**/*.js',
+	                '!'+ $code + $prj +'/app.js'
 	            ])
 	            .pipe($.concat('index.js'))
 	            .pipe($.ngAnnotate())
 	            .pipe($.uglify())
-	            .pipe(gulp.dest($dist + dir));
+	            .pipe(gulp.dest($dist + $prj));
 		});
 	});
 
 	// js注入
-	gulp.task('inject', () => {
-		$util.getType($name, (res) => {
-			gulp.src($code + res.path +'/index.html')
+	gulp.task('pages_inject', () => {
+		$util.getType(res => {
+			const $prj = res.path;
+
+			gulp.src($code + $prj +'/index.html')
 				.pipe(
 					$.inject(
 						gulp.src([
-							$config.codePath +'library/frame/*.js',
-							$config.codePath +'library/extend/*.js'
+							$$.source +'library/frame/*.js',
+							$$.source +'library/extend/*.js'
 						], {read: false}), {
 							relative: true,
 							name: 'injectframe'
@@ -140,8 +123,8 @@ module.exports = function (gulp, $) {
 				.pipe(
 					$.inject(
 						gulp.src([
-							$config.codePath +'library/app.js',
-							$code + res.path +'/app.js'
+							$$.source +'library/app.js',
+							$code + $prj +'/app.js'
 						], {read: false}), {
 							relative: true,
 							name: 'injectapp'
@@ -151,9 +134,9 @@ module.exports = function (gulp, $) {
 				.pipe(
 					$.inject(
 						gulp.src([
-							$config.codePath +'main/**/*.js',
-							$config.codePath +'common/**/*.js',
-							$code + res.path +'/common/**/*.js'
+							$$.source +'main/**/*.js',
+							$$.source +'common/**/*.js',
+							$code + $prj +'/components/**/*.js'
 						], {read: false}), {
 							relative: true,
 							name: 'injectcommon'
@@ -162,14 +145,14 @@ module.exports = function (gulp, $) {
 				)
 				.pipe(
 					$.inject(gulp.src([
-							$config.codePath +'themes/seed.css',
-							$config.codePath +'themes/'+ $name +'.'+ res.path +'.css',
-							$code + res.path +'/**/*.js',
-							'!'+ $code + res.path +'/app.js',
-							'!'+ $code + res.path +'/common/**/*.js'
+							$$.source +'themes/seed.css',
+							$$.source +'themes/'+ $prj +'.css',
+							$code + $prj +'/**/*.js',
+							'!'+ $code + $prj +'/app.js',
+							'!'+ $code + $prj +'/components/**/*.js'
 						], {read: false}), {relative: true})
 				)
-				.pipe(gulp.dest($code + res.path));
+				.pipe(gulp.dest($code + $prj));
 		});
 	});
 };

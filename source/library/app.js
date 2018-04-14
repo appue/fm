@@ -16,17 +16,9 @@ Fm.run(function (
 	var ua = navigator.userAgent.toLowerCase(),
 		$protocol = window.location.protocol;
 
-	$rootScope.isHybrid     = (window.isHybridCreate || /ajmide/.test(ua)) ? true : false;
-	$rootScope.isDebug      = window.isDebugCreate;
-	$rootScope.isWechat     = (/micromessenger/.test(ua)) ? true : false;
-	$rootScope.isApple      = (/iphone|ipad|ipod/.test(ua)) ? true : false;
-	$rootScope.isAndroid    = (/android/.test(ua)) ? true : false;
-	$rootScope.isAppApple   = ($rootScope.isHybrid && $rootScope.isApple) ? true : false;
-	$rootScope.isAppAndroid = ($rootScope.isHybrid && $rootScope.isAndroid) ? true : false;
-	$rootScope.isExplore    = (/ajmdexplore/.test(ua)) ? true : false;
-
-	$rootScope.userFace  = 'themes/img/default.jpg';
-	$rootScope.imgUrl	 = $protocol +'//m.ajmide.com/wireless/themes/img/';
+	$rootScope.isWechat  = (/micromessenger/.test(ua)) ? true : false;
+	$rootScope.isApple   = (/iphone|ipad|ipod/.test(ua)) ? true : false;
+	$rootScope.isAndroid = (/android/.test(ua)) ? true : false;
 
 	// 信息配置
 	$rootScope.setConfig = {
@@ -37,10 +29,6 @@ Fm.run(function (
 			name: '' // 用户名称
 		}
 	};
-
-	$rootScope.apiSocket = (window.isDebugCreate && !$rootScope.isHybrid) ? $protocol +'//a-test.ajmide.com/' : $protocol +'//a.ajmide.com/';
-	$rootScope.baseUrl   = window.isDebugCreate ? $protocol +'//'+ window.location.host : $protocol +'//'+ window.location.host +'/touch';
-
 	// $rootScope.screenWidth  = document.documentElement.clientWidth;
 	// $rootScope.screenHeight = document.documentElement.clientHeight;
 })
