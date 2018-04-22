@@ -1,0 +1,14 @@
+<section class="admin_login">
+	<ul>
+		<li>FM在线广播</li>
+		<li ng-class="{error: emsg.name}">
+			<input ng-enter="toLogin()" ng-change="toChange()" ng-model="tInput.username" type="text" placeholder="请输入用户名" />
+			<div>用户名输入错误</div>
+		</li>
+		<li ng-class="{error: emsg.password}">
+			<input ng-enter="toLogin()" ng-change="toChange()" ng-model="tInput.password" type="password" placeholder="请输入密码" />
+			<div>用户密码错误</div>
+		</li>
+		<li ng-click="toLogin()">登 录</li>
+	</ul>
+</section>

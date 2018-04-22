@@ -1,0 +1,85 @@
+.doc_path {
+    background: #21252b;
+    color: #9da5b4;
+    padding: 1.0rem;
+    ul {
+        li {
+            position: relative;
+            margin-bottom: 0.5rem;
+            @include box($pack:justify);
+            p {
+                background: #21252b;
+                z-index: 2;
+                position: relative;
+                &:nth-child(1) {
+                    padding-right: 1.0rem;
+                    @include box($align:center);
+                    &.c1 {
+                        padding-left: 2.0rem;
+                    }
+                    &.c2 {
+                        padding-left: 4.0rem;
+                    }
+                    &.c3 {
+                        padding-left: 6.0rem;
+                    }
+                    &.in_fd {
+                        &:before {
+                            background-image: url(img/home/folder.png);
+                        }
+                    }
+                    &.in_js {
+                        &:before {
+                            background-image: url(img/home/js.png);
+                        }
+                    }
+                    &.in_ht {
+                        &:before {
+                            background-image: url(img/home/html.png);
+                        }
+                    }
+                    &.in_nd {
+                        &:before {
+                            background-image: url(img/home/node.png);
+                        }
+                    }
+                    &.in_md {
+                        &:before {
+                            background-image: url(img/home/modules.png);
+                        }
+                    }
+                    &.in_gp {
+                        &:before {
+                            background-image: url(img/home/gulp.png);
+                        }
+                    }
+                    &.in_ss {
+                        &:before {
+                            background-image: url(img/home/sass.png);
+                        }
+                    }
+                    &:before {
+                        content: '';
+                        display: block;
+                        @include width-height-line(1.6rem);
+                        margin-right: 0.5rem;
+                        // background: url(#{$images})
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        background-size: 100%;
+                    }
+                }
+                &:nth-child(2) {
+                    padding-left: 1.0rem;
+                }
+            }
+            &:after {
+                height: 0;
+                content: '';
+                display: block;
+                @include position($left:0, $top:50%, $index:1, $width:100%, $height:1px);
+                @include border($type:bottom, $color:#666, $line:dotted, $size:1px);
+            }
+        }
+    }
+}
