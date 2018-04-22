@@ -1,6 +1,6 @@
 var express = require('express');
 var router  = express.Router();;
-var datas   = require('./api/data');
+// var datas   = require('./api/data');
 
 router.use(function setheader(req, res, next) {
 
@@ -37,6 +37,6 @@ router.use(function setheader(req, res, next) {
     }
 });
 
-router.all('/getDetailData', datas.getDetailData);
+router.all('/getAdmin', require('./api/getAdmin').getAdmin);
 
 module.exports = router;
