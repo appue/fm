@@ -19,7 +19,8 @@
     "yargs": "^11.0.0"
   },
   "scripts": {
-    "dev": "gulp"
+    "dev": "gulp",
+    "service": "node ./service/bin/start"
   },
   "repository": {
     "type": "git",
@@ -29,6 +30,5 @@
   "homepage": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.3"
   }
 }
