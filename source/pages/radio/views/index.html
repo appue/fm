@@ -1,2 +1,19 @@
-<section>
+<section class="views_index">
+    <div class="mod_tab">
+        <div class="cur"><span>动态</span></div>
+        <div ui-sref="fm.program"><span>节目</span></div>
+    </div>
+    <ul class="tr_list">
+        <li ng-repeat="(k, v) in tView.list track by $index">
+            <h3>
+                <img ng-src="{{v.image}}" />
+                {{v.subject}}
+            </h3>
+            <article>{{v.content}}</article>
+            <div>
+                <p ui-sref="fm.play({pid:v.pid})">来自{{v.program}}</p>
+                <p ng-click="toComment(v)"><icon>&#xe647;</icon>评论</p>
+            </div>
+        </li>
+    </ul>
 </section>

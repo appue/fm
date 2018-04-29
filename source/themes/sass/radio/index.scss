@@ -1,0 +1,64 @@
+.mod_tab {
+    padding: 0.5rem 0;
+    background: #fff;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.02);
+    @include box();
+    @include border-half();
+    @include position($type:fixed, $left:0, $top:0, $w:100%, $index:9);
+    div {
+        text-align: center;
+        line-height: 3.0rem;
+        @include box-flex();
+        span {
+            border-bottom: 2px solid #fff;
+        }
+        &.cur {
+            span {
+                border-bottom: 2px solid $yellow;
+            }
+        }
+    }
+}
+.views_index {
+    padding-top: 4.0rem;
+    .tr_list {
+        padding: 0 1.0rem;
+        li {
+            padding: 1.5rem 0;
+            @include border-half();
+            h3 {
+                font-size: 1.2rem;
+                margin-bottom: 0.5rem;
+                color: #666;
+                @include box($align:center);
+                img {
+                    display: block;
+                    margin-right: 0.4rem;
+                    @include width-height(3.0rem);
+                    @include box();
+                    @include border-radius($radius:100%);
+                }
+            }
+            article {
+                line-height: 2.0rem;
+            }
+            div {
+                line-height: 2.0rem;
+                padding-top: 0.5rem;
+                @include box($align:center, $pack:justify);
+                p {
+                    font-size: 1.2rem;
+                    &:nth-child(1) {
+                        color: #999;
+                    }
+                    &:nth-child(2) {
+                        color: #777;
+                        icon {
+                            margin-right: 0.2rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

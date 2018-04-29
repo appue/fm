@@ -16,11 +16,25 @@ Fm.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
 		}
 	})
 	/**
+	 * 节目
+	 * @method program
+	 */
+	.state('fm.program', {
+		url: 'program.htm',
+		views: {
+			'': {
+				templateUrl: 'views/program.html',
+				controller: 'cProgram'
+			}
+		}
+	})
+	/**
 	 * 播放页面
 	 * @method path
+	 * @param {[string]} pid 节目ID
 	 */
 	.state('fm.play', {
-		url: 'play.htm',
+		url: 'play.htm?pid',
 		views: {
 			'': {
 				templateUrl: 'views/play.html',
@@ -51,6 +65,19 @@ Fm.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
 			'': {
 				templateUrl: 'views/login.html',
 				controller: 'cLogin'
+			}
+		}
+	})
+	/**
+	 * 评论
+	 * @method comment
+	 */
+	.state('fm.comment', {
+		url: 'comment.htm?pid',
+		views: {
+			'': {
+				templateUrl: 'views/comment.html',
+				controller: 'cComment'
 			}
 		}
 	})

@@ -1,8 +1,8 @@
 /**
  * 定位控制
  * @method position
- * @param {[string]} $width  控制元素宽度（非必须）
- * @param {[string]} $height 控制元素高度（非必须）
+ * @param {[string]} $w      控制元素宽度（非必须）
+ * @param {[string]} $h      控制元素高度（非必须）
  * @param {[string]} $top    离顶部的距离（非必须）
  * @param {[string]} $right  离右部的距离（非必须）
  * @param {[string]} $bottom 离下部的距离（非必须）
@@ -14,11 +14,11 @@
  * @param {[string]} $mb     距离下部距离（非必须）
  * @param {[string]} $ml     距离左部距离（非必须）
  * @example
- *     @include position($left:0, $top:0, $width:100%, $height:100%, $index:99);
+ *     @include position($left:0, $top:0, $w:100%, $h:100%, $index:99);
  */
 @mixin position(
-    $width: null,
-    $height: null,
+    $w: null,
+    $h: null,
 
     $top: null,
     $right: null,
@@ -36,12 +36,12 @@
 ) {
     position: $type;
 
-    @if $width != null {
-        width: $width;
+    @if $w != null {
+        width: $w;
     }
 
-    @if $height != null {
-        height: $height;
+    @if $h != null {
+        height: $h;
     }
 
     @if $top != null {

@@ -1,0 +1,12 @@
+<section class="views_program">
+    <div class="mod_tab">
+        <div ui-sref="fm.index"><span>动态</span></div>
+        <div class="cur"><span>节目</span></div>
+    </div>
+
+    <ul class="tr_list">
+        <li ng-repeat="(k,v) in tView.list track by $index" ui-sref="fm.play({pid:v.pid})">
+            <p>{{v.program}}</p>
+        </li>
+    </ul>
+</section>

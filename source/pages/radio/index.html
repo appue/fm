@@ -8,6 +8,7 @@
         <!-- build:css -->
         <!-- inject:css -->
         <link rel="stylesheet" href="../../themes/seed.css">
+        <link rel="stylesheet" href="../../themes/radio.css">
         <!-- endinject -->
         <!-- endbuild -->
     </head>
@@ -31,6 +32,7 @@
         </div>
         <div ui-view="body"></div>
         <view-audio></view-audio>
+        <view-reg></view-reg>
         <!-- <show-loading></show-loading> -->
         <!-- <show-error></show-error> -->
         <!-- build:js -->
@@ -60,18 +62,23 @@
         <script src="../../common/components/delegate_event.js"></script>
         <script src="../../common/services/cache.js"></script>
         <script src="../../common/services/cookie.js"></script>
+        <script src="../../common/services/filters.js"></script>
         <script src="../../common/services/http_interceptor.js"></script>
         <script src="../../common/services/ng_enter.js"></script>
         <script src="../../common/services/storage.js"></script>
         <script src="../../common/services/widget.js"></script>
         <script src="components/audio.js"></script>
+        <script src="components/login.js"></script>
         <script src="components/reg.js"></script>
         <!-- endinject -->
 
         <!-- inject:js -->
+        <script src="views/comment.js"></script>
+        <script src="views/forum.js"></script>
         <script src="views/index.js"></script>
         <script src="views/login.js"></script>
         <script src="views/play.js"></script>
+        <script src="views/program.js"></script>
         <!-- endinject -->
 
         <!-- endbuild -->

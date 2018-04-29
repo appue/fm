@@ -1,0 +1,46 @@
+.view_reg {
+    background: rgba(255,255,255,1);
+    @include position($type:fixed, $left:0, $top:0, $w:100%, $h:100%, $index:9999);
+    @include box($orient:vertical, $pack:center);
+    @include ng-animate($type:ify);
+    padding: 3.0rem;
+    @include box-sizing();
+    div {
+        text-align: center;
+        font-size: 2.0rem;
+        @include iconfont();
+        @include width-height-line(4.0rem);
+        @include position($right:0, $top:0, $index:1);
+    }
+    ul {
+        margin-bottom: 2.0rem;
+        li {
+            @include box($align:end);
+            padding: 1.0rem 0;
+            label {
+                padding-right: 1.0rem;
+            }
+            input {
+                background: #fff;
+                width: 100%;
+                line-height: 2.0rem;
+                padding: 0.5rem 0;
+                display: block;
+                @include box-flex();
+                @include border($type:bottom, $color:#eee);
+            }
+        }
+    }
+    button {
+        text-align: center;
+        display: block;
+        width: 100%;
+        background: #eee;
+        line-height: 4.0rem;
+        font-size: 1.4rem;
+        @include border-radius($radius:2.0rem);
+        &.show {
+            background: $yellow;
+        }
+    }
+}

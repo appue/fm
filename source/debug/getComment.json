@@ -1,0 +1,27 @@
+{
+    "data": {
+        "program": "节目名称",
+        "list": [
+            {
+                "id": "11",
+                "content": "评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容",
+                "user": {
+                    "id": "10012",
+                    "name": "用户名",
+                    "image": "/themes/img/face/01.jpg"
+                },
+                "createtime": "2018-08-03 10:12:12"
+            },
+            {
+                "id": "11",
+                "content": "评论内容",
+                "user": {
+                    "id": "10012",
+                    "name": "用户名",
+                    "image": "/themes/img/face/03.jpg"
+                },
+                "createtime": "2018-08-03 10:12:12"
+            }
+        ]
+    }
+}

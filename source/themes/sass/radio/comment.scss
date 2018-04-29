@@ -1,0 +1,79 @@
+.views_comment {
+    h2 {
+        padding: 0 1.0rem 2.0rem;
+        @include box($align:center);
+        &:before {
+            content: "";
+            display: block;
+            width: 0.3rem;
+            height: 1.8rem;
+            background: $yellow;
+            margin-right: 0.5rem;
+        }
+        button {
+            @include iconfont();
+        }
+    }
+    ul {
+        padding: 0 1.0rem;
+        li {
+            margin-bottom: 1.0rem;
+            padding-bottom: 1.0rem;
+            @include border-half();
+            h3 {
+                @include box($align:center);
+                img {
+                    margin-right: 1.0rem;
+                    @include width-height(3.0rem);
+                    @include border-radius($radius:100%);
+                }
+                div {
+                    @include box-flex();
+                    p {
+                        &:nth-child(2) {
+                            color: #999;
+                            font-size: 1.2rem;
+                        }
+                    }
+                }
+            }
+            article {
+                padding-top: 0.5rem;
+                padding-left: 4.0rem;
+                color: #666;
+                line-height: 1.8rem;
+            }
+        }
+    }
+    .tr_btn {
+        padding: 0.5rem 1.0rem;
+        background: #fff;
+        box-shadow: 1px -1px 1px #f8f8f8;
+        @include box-sizing();
+        @include box();
+        @include position($type:fixed, $w:100%, $left:0, $bottom:0, $index:99);
+        input,
+        button {
+            display: block;
+            background: #f8f8f8;
+        }
+        input {
+            padding: 0.5rem 1.0rem;
+            line-height: 2.0rem;
+            @include box-flex();
+            @include border-radius($type:left, $radius:1.5rem);
+        }
+        button {
+            line-height: 3.0rem;
+            width: 4.0rem;
+            font-size: 1.6rem;
+            color: #bbb;
+            text-align: center;
+            @include iconfont();
+            @include border-radius($type:right, $radius:1.5rem);
+            &.show {
+                color: #333;
+            }
+        }
+    }
+}

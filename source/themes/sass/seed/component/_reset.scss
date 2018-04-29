@@ -13,7 +13,7 @@ html {
 body {
 	font-size: 1.4rem;
 	width: 100%;
-	color: #333;
+	color: #222;
 	background: #fff;
 	// font-family: sans-serif, Arial, "Lucida Grande", Verdana, inherit, "Microsoft YaHei", "Helvetica Neue", "Roboto", "Segoe UI", sans-serif;
 	font-family: sans-serif, Arial, "Lucida Grande", "Microsoft YaHei";
@@ -85,4 +85,8 @@ textarea {
 
 i,em {
 	font-style: normal;
+}
+
+icon {
+	@include iconfont();
 }

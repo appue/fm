@@ -1,0 +1,46 @@
+.views_play {
+    color: #fff;
+    background: url(img/common/bg_play_01.jpg) no-repeat 0 0;
+    background-size: cover;
+    padding: 2.0rem 0;
+    @include box-sizing();
+    @include position($type:fixed, $w:100%, $h:100%, $index:1);
+    @include box($orient:vertical, $align:center, $pack:justify);
+    .tr_img {
+        position: relative;
+        width: 100%;
+        img {
+            display: block;
+            margin: 0 auto;
+            @include width-height(70%);
+            @include border-radius($radius:100%);
+            border: 4px solid rgba(0,0,0,0.4);
+        }
+        icon {
+            display: block;
+            text-align: center;
+            font-size: 5.0rem;
+            color: rgba(255,255,255,0.6);
+            text-shadow: 1px 1px 6px rgba(0,0,0,0.3);
+            @include width-height(100%);
+            @include position($left:0, $top:0, $index:2);
+            @include box($align:center, $pack:center);
+        }
+    }
+    .tr_subject {
+
+    }
+    .tr_btn {
+        width: 100%;
+        padding: 0 1.0rem;
+        @include box-sizing();
+        @include box($pack:justify);
+        icon {
+            display: block;
+            text-align: center;
+            font-size: 2.0rem;
+            text-shadow: 1px 1px 6px rgba(0,0,0,0.3);
+            @include width-height-line(3.0rem);
+        }
+    }
+}

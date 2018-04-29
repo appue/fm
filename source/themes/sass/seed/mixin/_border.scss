@@ -36,7 +36,7 @@
 		border-#{$type}: 1px solid #dedede;
 	}
 
-	-webkit-border-image: url(#{$images}border_half_#{$color}.png) 2 stretch;
+	-webkit-border-image: url(img/common/border_half_#{$color}.png) 2 stretch;
 }
 
 /**

@@ -1,0 +1,28 @@
+.views_program {
+    padding-top: 5.0rem;
+    .tr_list {
+        font-size: 0;
+        li {
+            display: inline-block;
+            width: 50%;
+            font-size: 1.2rem;
+            @include box-sizing();
+            margin-bottom: 1.0rem;
+            padding: 0 1.0rem;
+            &:nth-child(odd) {
+                padding-left: 1.0rem;
+                padding-right: 0.5rem;
+            }
+            &:nth-child(even) {
+                padding-left: 0.5rem;
+                padding-right: 1.0rem;
+            }
+            p {
+                @include border-half($type:all);
+                line-height: 3.0rem;
+                text-align: center;
+                background: #f8f8f8;
+            }
+        }
+    }
+}

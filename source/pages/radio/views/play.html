@@ -1,2 +1,13 @@
-<section>
+<section class="views_play" style="background:url({{tView.bg}}) 0 0 no-repeat;background-size:cover;">
+    <div class="tr_subject">{{tView.detail.program}}</div>
+    <div class="tr_img">
+        <img ng-src="{{tView.detail.image}}" />
+        <icon ng-show="!tView.played">&#xe635;</icon>
+        <icon ng-show="tView.played">&#xe638;</icon>
+    </div>
+    <div class="tr_btn">
+        <icon ui-sref="fm.index">&#xe64f;</icon>
+        <icon>&#xe61c;</icon>
+        <icon ui-sref="fm.comment({pid:tView.pid})">&#xe647;</icon>
+    </div>
 </section>

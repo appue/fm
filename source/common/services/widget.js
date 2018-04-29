@@ -5,14 +5,50 @@
  * @class $appueWidget
  */
 Fm.factory('$appueWidget', function (
-	$http
+	$http,
+	$compile,
+	$timeout,
+	$rootScope
 ) {
+	var toastTimer = null;
 	return {
+		/**
+ 		 * 显示提示信息
+ 		 * @method msgToast
+ 		 * @param {[string]} msg  提示的文本信息
+ 		 * @param {[number]} time (可选)弹框多长实际关闭，毫秒（默认1000）
+ 		 * @example
+ 		 *     $appueWidget.msgToast('msg', 2000);
+ 		 */
+ 		msgToast: function (msg, time) {
+ 			var toastDom = angular.element(document.querySelector('.mod_toast'));
+
+ 			if (!toastDom.length) {
+ 				var toastTpl = $compile('<div class="mod_toast" ng-click="notification=null" ng-show="notification"><span>{{notification}}</span></div>');
+ 				angular.element(document.getElementsByTagName('body')[0]).append(toastTpl($rootScope));
+ 			}
+
+ 			$timeout(function() {
+ 				$rootScope.notification = msg;
+ 			}, 0);
+
+ 			$timeout.cancel(toastTimer);
+
+ 			angular.element(document.querySelector('.toast')).on('touchstart touchmove touchend', function (e) {
+ 				e.stopPropagation();
+ 				e.preventDefault();
+ 			});
+
+ 			toastTimer = $timeout(function() {
+ 				$rootScope.notification = '';
+ 			}, time || 1000);
+ 		},
 
 		/**
 		 * ajax 请求封装
 		 * @method ajaxRequest
 		 * @param {object} params 输入参数
+		 *     @param {[boolean]}  parmas.debug     是否本地调试
 		 *     @param {[string]}   params.method    请求类型（默认:POST）GET|POST
 		 *     @param {[object]}   params.data      POST请求发送的数据
 		 *     @param {[object]}   params.params    GET请求发送的数据
@@ -39,6 +75,15 @@ Fm.factory('$appueWidget', function (
 			var self = this;
 
 			if (!params || !params.url) return;
+
+			if (params.debug) {
+				var _json = '../../../debug/'+ params.url +'.json?v='+ new Date().getTime();
+
+				$http.get(_json).success(function (res) {
+					params.success(res);
+				});
+				return;
+			}
 
 			var $scope = params.scope || '',
 				opts = {

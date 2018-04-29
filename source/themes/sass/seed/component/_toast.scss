@@ -7,7 +7,7 @@
     color: #fff;
     padding-top: 10rem;
     @include width-height(100%);
-    @include position($type:fixed, $left:0, $top:0, $index:9999);
+    @include position($type:fixed, $left:0, $top:0, $index:99999);
     @include box-sizing();
     @include box($align:center, $orient:vertical);
     span {
