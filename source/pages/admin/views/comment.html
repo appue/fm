@@ -1,0 +1,24 @@
+<view-header></view-header>
+
+<ul class="mod_tab">
+    <li ui-sref="fm.program">节目管理</li>
+    <li ui-sref="fm.comment" class="cur">评论管理</li>
+</ul>
+
+<section class="views_comment">
+    <ul class="tr_list">
+        <li ng-repeat="(k,v) in tView.list track by $index">
+            <h3>
+                <img ng-src="{{v.user.image}}" />
+                <div>
+                    <p>{{v.user.name}} 【{{v.program}}】</p>
+                    <p>{{v.createtime}}</p>
+                </div>
+            </h3>
+            <article>{{v.content}}</article>
+            <div>
+                <button ng-click="toDelete(v)" class="mod_btn"><icon>&#xe60f;</icon>删除</button>
+            </div>
+        </li>
+    </ul>
+</section>

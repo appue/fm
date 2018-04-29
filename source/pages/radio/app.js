@@ -43,32 +43,6 @@ Fm.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
 		}
 	})
 	/**
-	 * 留言
-	 * @method forum
-	 */
-	.state('fm.forum', {
-		url: 'forum.htm',
-		views: {
-			'': {
-				templateUrl: 'views/forum.html',
-				controller: 'cForum'
-			}
-		}
-	})
-	/**
-	 * 登录
-	 * @method login
-	 */
-	.state('fm.login', {
-		url: 'login.htm',
-		views: {
-			'': {
-				templateUrl: 'views/login.html',
-				controller: 'cLogin'
-			}
-		}
-	})
-	/**
 	 * 评论
 	 * @method comment
 	 */

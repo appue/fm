@@ -1,0 +1,20 @@
+<view-header></view-header>
+
+<ul class="mod_tab">
+    <li ui-sref="fm.member" class="cur">用户管理</li>
+    <li ui-sref="fm.compere">主持人管理</li>
+</ul>
+
+<section class="views_member">
+    <ul>
+        <li ng-repeat="(k,v) in tView.list track by $index">
+            <img ng-src="{{v.image}}" />
+            <div>
+                <p>用户名：{{v.name}}</p>
+                <p>注册时间：{{v.createtime}}</p>
+                <p>最后登录时间：{{v.lasttime}}</p>
+            </div>
+            <button ng-click="toDelete(v)"><icon>&#xe60f;</icon>删除</button>
+        </li>
+    </ul>
+</section>

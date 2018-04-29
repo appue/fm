@@ -1,0 +1,63 @@
+.views_program {
+    padding: 1.0rem 2.0rem 2.0rem;
+    .tr_list {
+        background: #fff;
+        padding: 0 2.0rem;
+        @include border-half();
+        li {
+            padding: 2.0rem 0;
+            @include box($align:center);
+            border-bottom: 1px dotted #bbb;
+            &:last-child {
+                border: 0;
+                margin: 0;
+            }
+            img {
+                margin-right: 1.0rem;
+                @include width-height(6rem);
+            }
+            article {
+                height: 6.0rem;
+                @include box-flex();
+                h2 {
+                    padding-bottom: 1.0rem;
+                }
+                p {
+                    font-size: 1.2rem;
+                    color: #999;
+                }
+            }
+            div {
+                @include box($align:center);
+            }
+        }
+    }
+}
+
+
+.edit_program {
+    background: #fff;
+    padding: 2.0rem;
+    li {
+        @include box($align:center);
+        padding: 1.0rem 0;
+        border-bottom: 1px dotted #eee;
+        label {
+            width: 10rem;
+            display: block;
+            line-height: 2.0rem;
+        }
+        input,
+        textarea {
+            display: block;
+            background: #f8f8f8;
+            line-height: 2.0rem;
+            padding: 0.5rem 1.0rem;
+            @include box-flex();
+            @include border-half($type:all);
+        }
+        textarea {
+            height: 5.0rem;
+        }
+    }
+}

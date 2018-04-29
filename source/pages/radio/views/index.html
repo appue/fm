@@ -6,8 +6,11 @@
     <ul class="tr_list">
         <li ng-repeat="(k, v) in tView.list track by $index">
             <h3>
-                <img ng-src="{{v.image}}" />
-                {{v.subject}}
+                <img ng-src="{{v.user.image}}" />
+                <div>
+                    <p>{{v.subject}}</p>
+                    <p>{{v.createtime}}</p>
+                </div>
             </h3>
             <article>{{v.content}}</article>
             <div>

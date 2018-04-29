@@ -11,6 +11,13 @@ Fm.controller('cPlay', function (
         bg: '/themes/img/common/bg_play_0'+ parseInt(7*Math.random() + 1) +'.jpg'
     };
 
+
+    $scope.toPlay = function () {
+        $scope.$parent.$parent.$broadcast('view:mediaAudioPlay', {
+            media: $scope.tView.detail.media
+        });
+    };
+
     $appueWidget.ajaxRequest({
         debug: true,
         scope: $scope,
@@ -21,5 +28,5 @@ Fm.controller('cPlay', function (
         success: function (res) {
             $scope.tView.detail = res.data;
         }
-    })
+    });
 });

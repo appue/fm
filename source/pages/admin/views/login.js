@@ -1,7 +1,10 @@
 'use strict';
 Fm.controller('cLogin', function (
     $scope,
-    $appueWidget
+    $state,
+    $rootScope,
+    $appueWidget,
+    $appueStorage
 ){
     $scope.tInput = {
         username: '',
@@ -28,15 +31,20 @@ Fm.controller('cLogin', function (
             return;
         }
 
+        $appueStorage.push($rootScope.setConfig.pc, '369sadsd');
+        $state.go('fm.index');
+        return;
+
         $appueWidget.ajaxRequest({
             scope: $scope,
             data: {
                 username: $scope.tInput.username,
                 password: md5($scope.tInput.password)
             },
+            url: 'adminLogin',
             success: function (res) {
-
+                $appueStorage.push('fmh_sk3yew032c', res.data);
             }
-        })
+        });
     };
 });

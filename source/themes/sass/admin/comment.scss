@@ -1,0 +1,41 @@
+.views_comment {
+    padding: 1.0rem 2.0rem 2.0rem;
+    .tr_list {
+        background: #fff;
+        padding: 0 2.0rem;
+        @include border-half($type:all);
+        li {
+            padding: 2.0rem 0;
+            border-bottom: 1px dotted #bbb;
+            &:last-child {
+                border: 0;
+                margin: 0;
+            }
+            h3 {
+                @include box($align:center);
+                img {
+                    margin-right: 1.0rem;
+                    @include width-height(3.0rem);
+                    @include border-radius($radius:100%);
+                }
+                &>div {
+                    @include box-flex();
+                    p {
+                        &:nth-child(2) {
+                            color: #999;
+                            font-size: 1.2rem;
+                        }
+                    }
+                }
+            }
+            article {
+                padding-top: 0.5rem;
+                color: #666;
+                line-height: 1.8rem;
+                margin-bottom: 1.0rem;
+            }
+            &>div {
+            }
+        }
+    }
+}

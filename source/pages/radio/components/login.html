@@ -1,0 +1,31 @@
+<section ng-if="dView.show" class="components_login">
+    <div ng-click="toClose()" class="tr_close">&#xe644;</div>
+    <ul ng-show="dView.type=='reg'" class="tr_login">
+        <li>
+            <input ng-model="dInput.username" type="text" placeholder="请输入注册用户名" />
+        </li>
+        <li>
+            <input ng-model="dInput.password" type="password" placeholder="请输入密码" />
+        </li>
+        <li>
+            <input ng-model="dInput.password1" type="password" placeholder="请再次输入密码" />
+        </li>
+    </ul>
+    <button ng-show="dView.type=='reg'" ng-click="toRegister()" ng-class="{'show': dInput.username && dInput.password && dInput.password1}">
+        注&nbsp;&nbsp;&nbsp;&nbsp;册
+    </button>
+
+
+    <ul ng-show="dView.type=='login'" class="tr_login">
+        <li>
+            <input ng-model="dInput.username" type="text" placeholder="请输入用户名" />
+        </li>
+        <li>
+            <input ng-model="dInput.password" type="password" placeholder="请输入密码" />
+        </li>
+    </ul>
+    <button ng-show="dView.type=='login'" ng-click="toLogin()" class="show">
+        登&nbsp;&nbsp;&nbsp;&nbsp;录
+    </button>
+    <div ng-show="dView.type=='login'" ng-click="dView.type='reg'" class="tr_link">去注册</div>
+</section>

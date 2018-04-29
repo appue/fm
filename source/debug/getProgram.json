@@ -2,15 +2,21 @@
     "data": [
         {
             "program": "上海之声",
-            "pid": "143434"
+            "pid": "143434",
+            "media": "http://short-audio.ajmide.com/audio/201804/27/5ae2f4d203a781524823250",
+            "content": "你的人生不会辜负你的。那些转错的弯，那些流下的泪水，那些滴下的汗水，全都让你成为独一无二的自己。"
         },
         {
             "program": "上海之声",
-            "pid": "143434"
+            "pid": "143434",
+            "media": "http://short-audio.ajmide.com/audio/201804/27/5ae2f4d203a781524823250",
+            "content": "不要把自己的伤口揭开给别人看，世界上多的不是医师，多的是撒盐的人"
         },
         {
             "program": "上海之声",
-            "pid": "143434"
+            "pid": "143434",
+            "media": "http://short-audio.ajmide.com/audio/201804/27/5ae2f4d203a781524823250",
+            "content": "不要只是看到成功时辉煌灿烂，却无视成功背后的挫折艰辛。一次成功是由无数次的失败堆积出来的。"
         }
     ]
 }

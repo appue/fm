@@ -1,24 +1,38 @@
-.view_reg {
+.components_login {
     background: rgba(255,255,255,1);
     @include position($type:fixed, $left:0, $top:0, $w:100%, $h:100%, $index:9999);
     @include box($orient:vertical, $pack:center);
     @include ng-animate($type:ify);
     padding: 3.0rem;
     @include box-sizing();
-    div {
+    .tr_close {
         text-align: center;
         font-size: 2.0rem;
         @include iconfont();
         @include width-height-line(4.0rem);
         @include position($right:0, $top:0, $index:1);
     }
-    ul {
+    .tr_login {
         margin-bottom: 2.0rem;
         li {
-            @include box($align:end);
-            padding: 1.0rem 0;
-            label {
-                padding-right: 1.0rem;
+            padding: 0.5rem 0;
+            @include box($align:center);
+            @include border-half();
+            &:before {
+                @include iconfont;
+                display: block;
+                @include width-height-line(2.0rem);
+            }
+            &:nth-child(1) {
+                &:before {
+                    content: '\e610';
+                }
+            }
+            &:nth-child(2),
+            &:nth-child(3) {
+                &:before {
+                    content: '\e620';
+                }
             }
             input {
                 background: #fff;
@@ -26,8 +40,7 @@
                 line-height: 2.0rem;
                 padding: 0.5rem 0;
                 display: block;
-                @include box-flex();
-                @include border($type:bottom, $color:#eee);
+                border: none;
             }
         }
     }
@@ -36,11 +49,17 @@
         display: block;
         width: 100%;
         background: #eee;
-        line-height: 4.0rem;
+        line-height: 3.0rem;
         font-size: 1.4rem;
-        @include border-radius($radius:2.0rem);
+        margin-bottom: 1.0rem;
+        @include border-radius($radius:1.5rem);
         &.show {
             background: $yellow;
+            color: #000;
         }
+    }
+    .tr_link {
+        text-align: right;
+        font-size: 1.2rem;
     }
 }

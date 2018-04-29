@@ -31,13 +31,13 @@ Fm.controller('cComment', function (
 
     $scope.toSubmit = function () {
         if (!$scope.tInput.content) return;
-
         $appueWidget.ajaxRequest({
             scope: $scope,
             auth: true,
             data: {
                 content: $scope.tInput.content
             },
+            url: 'postComment',
             success: function (res) {
                 $appueWidget.msgToast('评论发表成功');
                 $scope.tInput.cotent = '';

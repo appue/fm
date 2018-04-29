@@ -1,0 +1,44 @@
+header {
+    height: 4.0rem;
+    margin-bottom: 1.0rem;
+    section {
+        background: #fff;
+        padding: 0 2.0rem;
+        @include box($align:center);
+        box-shadow: 1px 1px 1px #eee;
+        @include box-sizing();
+        @include position($type:fixed, $left:0, $top:0, $w:100%, $h:4.0rem, $index:999);
+        menu {
+            @include box-flex();
+            @include box($align:center);
+            li {
+                line-height: 4.0rem;
+                padding: 0 2.0rem;
+                cursor: pointer;
+                span {
+                    line-height: 4.0rem;
+                    display: block;
+                    border-bottom: 3px solid rgba(0,0,0,0);
+                    @include box-sizing();
+                }
+                &.cur {
+                    span {
+                        border-bottom: 3px solid #ffdb12;
+                    }
+                }
+            }
+        }
+
+        div {
+            @include box($align:center);
+            p {
+                color: #666;
+                margin-left: 1.5rem;
+                cursor: pointer;
+                icon {
+                    margin-right: 0.5rem;
+                }
+            }
+        }
+    }
+}

@@ -8,7 +8,8 @@ Fm.factory('$appueWidget', function (
 	$http,
 	$compile,
 	$timeout,
-	$rootScope
+	$rootScope,
+	$appueStorage
 ) {
 	var toastTimer = null;
 	return {
@@ -45,6 +46,65 @@ Fm.factory('$appueWidget', function (
  		},
 
 		/**
+		 * 显示确认提示框
+		 * @method popConfirm
+		 * @param {[scope]}    scope      $scope
+		 * @param {[string]}   content    显示的信息
+		 * @param {[string]}   submitText 确认按钮的文本，默认确认
+		 * @param {[function]} cancel     取消按钮回调，可以不填
+		 * @param {[function]} submit     确认按钮回调
+		 * @example
+		 *     $appueWidget.popConfirm({
+		 *         scope: $scope,
+		 *         content: '输入的内容',
+		 *         submitText: '确认',
+		 *         cancel: function () {},
+		 *         submit: function () {}
+		 *     });
+		 */
+		popConfirm: function (params) {
+			var $scope = params.scope,
+				dom = angular.element(document.querySelector('.mod_confirm'));
+
+			$scope['popConfirm'] = {
+				style  : {},
+				show   : true,
+				content: params.content || '',
+				submitText: params.submitText || '确定',
+				cancel : function () {
+					$scope.popConfirm.show = false;
+					$('.mod_confirm').remove();
+					if (params.cancel) params.cancel();
+				},
+				submit : function () {
+					$scope.popConfirm.show = false;
+					$('.mod_confirm').remove();
+					if (params.submit) params.submit();
+				}
+			};
+
+			if (params.style) $scope.popConfirm.style = params.style;
+
+			if (!dom.length) {
+				var toastTpl = $compile('<div ng-show="popConfirm.show" class="mod_confirm">'+
+					'	<div class="iconfirm">'+
+					'       <div class="iconfirmcontent" ng-style="popConfirm.style" ng-bind-html="popConfirm.content | tohtml"></div>'+
+					'		<div class="iconfirmbtn">'+
+					'           <button ng-click="popConfirm.cancel()">取消</button>'+
+					'           <button ng-click="popConfirm.submit()">{{popConfirm.submitText}}</button>'+
+					'       </div>'+
+					'   </div>'+
+					'</div>');
+				angular.element(document.getElementsByTagName('body')[0]).append(toastTpl($scope));
+			}
+
+			angular.element(document.querySelector('.mod_confirm')).on('touchstart touchmove touchend', function (e) {
+				e.stopPropagation();
+				e.preventDefault();
+			});
+		},
+
+		/**
 		 * ajax 请求封装
 		 * @method ajaxRequest
 		 * @param {object} params 输入参数
@@ -73,7 +133,6 @@ Fm.factory('$appueWidget', function (
 		 */
 		ajaxRequest: function (params) {
 			var self = this;
-
 			if (!params || !params.url) return;
 
 			if (params.debug) {
@@ -87,8 +146,8 @@ Fm.factory('$appueWidget', function (
 
 			var $scope = params.scope || '',
 				opts = {
-					isLogin  : true, //-----------是否需要登录
-					isPage   : false, //----------是否分页
+					auth: false, //-----------是否需要登录
+					isPage: false, //----------是否分页
 					isLoading: true, //-----------显示loading动画
 					success  : function () {} //--成功回调
 					// error: function () {}, //-----ajax请求遇到错误中断回调(可选)
@@ -97,11 +156,35 @@ Fm.factory('$appueWidget', function (
 
 			for (var i in params) opts[i] = params[i];
 
+			if (opts.auth) {
+				var auth = $appueStorage.pull($rootScope.setConfig.app);
+
+				if (auth) {
+					opts.data.auth = auth;
+				} else {
+					$rootScope.$broadcast('view:showLogin', {
+						show: true
+					});
+					return;
+				}
+			}
+
+			if (opts.admin) {
+				var auth = $appueStorage.pull($rootScope.setConfig.pc);
+
+				if (auth) {
+					opts.data.auth = auth;
+				} else {
+					$state.go('fm.login');
+					return;
+				}
+			}
+
 			var ajaxConfig = {
 				headers: {
 					'Content-Type' : 'application/json;charset=UTF-8'
 				},
-				method : params.method || 'GET',
+				method : params.method || 'POST',
 				url    : 'http://127.0.0.1:9091/api/'+ params.url,
 				// params: params.params || {},
 				data   : {},

@@ -1,0 +1,38 @@
+.mod_confirm {
+	background: rgba(0,0,0,.4);
+	@include box($pack:center, $orient:vertical);
+	@include width-height(100%);
+	@include position($type:fixed, $left:0, $top:0, $index:1000);
+	@include ng-animate($type:show);
+	.iconfirm {
+		background: #fff;
+		width: 40%;
+		margin: 0 auto;
+		@include border-radius($radius:3px);
+		.iconfirmcontent {
+			padding: 2.0rem 4.0rem;
+			text-align: center;
+			font-size: 1.4rem;
+			color: #333;
+		}
+		.iconfirmbtn {
+			@include box($align:center,$pack:justify);
+			padding:0 2.6rem 2rem;
+			button {
+				width:7.5rem;
+				height:2.5rem;
+				line-height: 2.5rem;
+				text-align: center;
+				display: block;
+				border:1px solid rgba(204,204,204,.4);
+				@include border-radius($radius:2.5rem);
+				font-size:1.28rem;
+				color:#ccc;
+				&:nth-child(2) {
+					color: #ffc000;
+					border-color:rgba(255,192,0,.5);
+				}
+			}
+		}
+	}
+}

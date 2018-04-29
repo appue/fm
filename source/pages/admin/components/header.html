@@ -1,0 +1,15 @@
+<header>
+    <section>
+        <!-- <menu ngd-event="toClick($event)" event-name="click" selector="li"> -->
+        <menu>
+            <li ui-sref="fm.index" ng-class="{'cur': tab=='index'}"><span>首页</span></li>
+            <li ui-sref="fm.program" ng-class="{'cur': tab=='program'}"><span>节目管理</span></li>
+            <li ui-sref="fm.member" ng-class="{'cur': tab=='member'}"><span>用户管理</span></li>
+        </menu>
+
+        <div>
+            <p ng-click="toOut()"><icon>&#xe610;</icon>退出登录</p>
+            <p ng-click="toChange()"><icon>&#xe620;</icon>修改密码</p>
+        <div>
+    </section>
+</header>

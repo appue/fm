@@ -20,6 +20,16 @@ Fm.run(function (
 	$rootScope.isApple   = (/iphone|ipad|ipod/.test(ua)) ? true : false;
 	$rootScope.isAndroid = (/android/.test(ua)) ? true : false;
 
+	$rootScope.setConfig = {
+		app: 'lvt_i98wety398',
+		pc: 'mga_va34etd3e8',
+		member: '/themes/img/face/',
+		program: '/themes/img/program/',
+		audio: {
+			media: '',
+			state: false
+		}
+	};
 })
 .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
 	$stateProvider

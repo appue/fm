@@ -1,0 +1,27 @@
+<view-header></view-header>
+
+<ul class="mod_tab">
+    <li ui-sref="fm.program" class="cur">节目管理</li>
+    <li ui-sref="fm.comment">评论管理</li>
+    <li class="flex">
+        <button ng-click="toAdd()"><icon>&#xe62a;</icon>添加节目</button>
+    </li>
+</ul>
+
+<section class="views_program">
+    <ul class="tr_list">
+        <li ng-repeat="(k,v) in tView.list track by $index">
+            <img ng-src="{{v.image}}" />
+            <article>
+                <h2>{{v.program}}</h2>
+                <p>{{v.content}}</p>
+            </article>
+            <div>
+                <button ng-click="toEdit(v)" class="mod_btn mr10"><icon>&#xe62f;</icon>编辑</button>
+                <button ui-sref="fm.comment({pid:v.pid})" class="mod_btn"><icon>&#xe62b;</icon>查看评论</button>
+            </div>
+        </li>
+    </ul>
+</section>
+
+<view-program></view-program>

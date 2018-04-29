@@ -1,6 +1,7 @@
 'use strict';
 Fm.controller('cIndex', function (
     $scope,
+    $rootScope,
     $appueWidget
 ){
     $scope.tView = {
@@ -8,13 +9,15 @@ Fm.controller('cIndex', function (
         list: []
     };
 
-
     // 评论
     $scope.toComment = function (item) {
-        console.log($scope);
-        $scope.$parent.$parent.$broadcast('view:showReg', {show: true});
+        $rootScope.$broadcast('view:showLogin', {
+            show: true,
+            route: 'fm.comment',
+            opts: {pid: item.pid}
+        });
     };
-    
+
     $appueWidget.ajaxRequest({
         scope: $scope,
         debug: true,

@@ -29,7 +29,6 @@
             h3 {
                 font-size: 1.2rem;
                 margin-bottom: 0.5rem;
-                color: #666;
                 @include box($align:center);
                 img {
                     display: block;
@@ -38,11 +37,22 @@
                     @include box();
                     @include border-radius($radius:100%);
                 }
+                div {
+                    @include box-flex();
+                    p {
+                        &:nth-child(1) {
+                            color: #333;
+                        }
+                        &:nth-child(2) {
+                            color: #aaa;
+                        }
+                    }
+                }
             }
             article {
                 line-height: 2.0rem;
             }
-            div {
+            &>div {
                 line-height: 2.0rem;
                 padding-top: 0.5rem;
                 @include box($align:center, $pack:justify);
