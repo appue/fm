@@ -5,7 +5,7 @@ Fm.controller('cIndex', function (
 ){
     $appueWidget.ajaxRequest({
         scope: $scope,
-        url: 'getAdmin',
+        url: 'getList',
         success: function (res) {
             console.log(res);
         }

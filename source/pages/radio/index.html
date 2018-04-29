@@ -8,7 +8,6 @@
         <!-- build:css -->
         <!-- inject:css -->
         <link rel="stylesheet" href="../../themes/seed.css">
-        <link rel="stylesheet" href="../../themes/home.css">
         <!-- endinject -->
         <!-- endbuild -->
     </head>
@@ -31,6 +30,7 @@
             资源载入中，请稍候...
         </div>
         <div ui-view="body"></div>
+        <view-audio></view-audio>
         <!-- <show-loading></show-loading> -->
         <!-- <show-error></show-error> -->
         <!-- build:js -->
@@ -64,10 +64,14 @@
         <script src="../../common/services/ng_enter.js"></script>
         <script src="../../common/services/storage.js"></script>
         <script src="../../common/services/widget.js"></script>
+        <script src="components/audio.js"></script>
+        <script src="components/reg.js"></script>
         <!-- endinject -->
 
         <!-- inject:js -->
         <script src="views/index.js"></script>
+        <script src="views/login.js"></script>
+        <script src="views/play.js"></script>
         <!-- endinject -->
 
         <!-- endbuild -->

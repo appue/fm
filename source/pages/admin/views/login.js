@@ -1,24 +1,42 @@
 'use strict';
 Fm.controller('cLogin', function (
-    $scope
+    $scope,
+    $appueWidget
 ){
     $scope.tInput = {
-        name: '',
+        username: '',
         password: ''
     };
     $scope.emsg = {
-        name: false,
+        username: false,
         password: false
     };
-    
+
     $scope.toChange = function () {
-        $scope.emsg.name = false;
+        $scope.emsg.username = false;
         $scope.emsg.password = false;
     };
 
     $scope.toLogin = function () {
-        if (!$scope.tInput.name) {
-            $scope.emsg.name = true;
+        if (!$scope.tInput.username) {
+            $scope.emsg.username = true;
+            return;
         }
+
+        if (!$scope.tInput.password) {
+            $scope.emsg.password = true;
+            return;
+        }
+
+        $appueWidget.ajaxRequest({
+            scope: $scope,
+            data: {
+                username: $scope.tInput.username,
+                password: md5($scope.tInput.password)
+            },
+            success: function (res) {
+
+            }
+        })
     };
 });

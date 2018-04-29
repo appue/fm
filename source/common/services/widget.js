@@ -16,7 +16,6 @@ Fm.factory('$appueWidget', function (
 		 *     @param {[string]}   params.method    请求类型（默认:POST）GET|POST
 		 *     @param {[object]}   params.data      POST请求发送的数据
 		 *     @param {[object]}   params.params    GET请求发送的数据
-		 *     @param {[boolean]}  params.isPhp     调用PHP接口，如果是管理后台默认为false，如果是节目组后台默认为true
 		 *     @param {[boolean]}  params.isLoading 是否需要loading（默认:true）
 		 *     @param {[boolean]}  params.isPage    是否需要分页
 		 *     @param {[boolean]}  params.isLogin   是否需要登录（默认:true）
@@ -29,11 +28,8 @@ Fm.factory('$appueWidget', function (
 		 * @example
 		 *     $appueWidget.ajaxRequest({
 		 *         scope: $scope,
-		 *         isPhp: true,
 		 *         url: 'h5/test.php',
-		 *         data: {
-		 *             pid: 10144
-		 *         },
+		 *         data: {},
 		 *         success: function (res) {
 		 *             console.log('成功函数回调')
 		 *         }
