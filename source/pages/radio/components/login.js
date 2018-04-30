@@ -20,7 +20,6 @@ Fm.directive('viewLogin', function (
             };
             $scope.dView = {
                 show: false,
-                btn: false,
                 type: 'login'
             };
 
@@ -45,8 +44,6 @@ Fm.directive('viewLogin', function (
             };
 
             $scope.toRegister = function () {
-                if (!$scope.dView.btn) return;
-
                 if (!$scope.dInput.username) {
                     $appueWidget.msgToast('请输入用户名');
                     return;
@@ -69,14 +66,40 @@ Fm.directive('viewLogin', function (
 
                 $appueWidget.ajaxRequest({
                     scope: $scope,
-                    url: 'regUser',
                     data: {
                         username: $scope.dInput.username,
                         password: md5($scope.dInput.password),
                         password1: md5($scope.dInput.password1)
                     },
+                    url: 'setMember',
                     success: function (res) {
+                        $appueStorage.push($rootScope.setConfig.app, res.data);
+                        $scope.dView.show = false;
+                    }
+                });
+            };
 
+            $scope.toLogin = function () {
+                if (!$scope.dInput.username) {
+                    $appueWidget.msgToast('请输入用户名');
+                    return;
+                }
+
+                if (!$scope.dInput.password) {
+                    $appueWidget.msgToast('请输入密码');
+                    return;
+                }
+
+                $appueWidget.ajaxRequest({
+                    scope: $scope,
+                    data: {
+                        username: $scope.dInput.username,
+                        password: md5($scope.dInput.password)
+                    },
+                    url: 'getLogin',
+                    success: function (res) {
+                        $appueStorage.push($rootScope.setConfig.app, res.data);
+                        $scope.dView.show = false;
                     }
                 });
             };

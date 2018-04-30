@@ -56,6 +56,7 @@ Fm.directive('viewProgram', function (
                     return;
                 }
                 var opts = {
+                    pid: $scope.dInput.pid || '',
                     program: $scope.dInput.program,
                     image: $scope.dInput.image,
                     content: $scope.dInput.content,
@@ -63,15 +64,18 @@ Fm.directive('viewProgram', function (
                     compere: $scope.dInput.compere
                 };
 
-                if ($scope.dInput.pid) {}
-
                 $appueWidget.ajaxRequest({
                     scope: $scope,
                     admin: true,
                     data: opts,
-                    url: 'postProgram',
+                    url: 'setAdminProgram',
                     success: function (res) {
-
+                        if ($scope.dInput.pid) {
+                            $appueWidget.msgToast('更新成功');
+                        } else {
+                            $appueWidget.msgToast('新增成功');
+                        }
+                        $scope.dView.show = false;
                     }
                 })
             };

@@ -6,7 +6,7 @@ Fm.controller('cComment', function (
 ){
     $scope.tView = {
         pid: $stateParams.pid,
-        program: ''
+        program: {}
     };
     $scope.tInput = {
         content: ''
@@ -17,7 +17,6 @@ Fm.controller('cComment', function (
     };
 
     $appueWidget.ajaxRequest({
-        debug: true,
         scope: $scope,
         url: 'getComment',
         data: {
@@ -31,16 +30,18 @@ Fm.controller('cComment', function (
 
     $scope.toSubmit = function () {
         if (!$scope.tInput.content) return;
+
         $appueWidget.ajaxRequest({
             scope: $scope,
             auth: true,
             data: {
+                pid: $scope.tView.pid,
                 content: $scope.tInput.content
             },
-            url: 'postComment',
+            url: 'setComment',
             success: function (res) {
                 $appueWidget.msgToast('评论发表成功');
-                $scope.tInput.cotent = '';
+                $scope.tInput.content = '';
             }
         });
     };

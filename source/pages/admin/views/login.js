@@ -31,19 +31,16 @@ Fm.controller('cLogin', function (
             return;
         }
 
-        $appueStorage.push($rootScope.setConfig.pc, '369sadsd');
-        $state.go('fm.index');
-        return;
-
         $appueWidget.ajaxRequest({
             scope: $scope,
             data: {
                 username: $scope.tInput.username,
                 password: md5($scope.tInput.password)
             },
-            url: 'adminLogin',
+            url: 'getAdminLogin',
             success: function (res) {
-                $appueStorage.push('fmh_sk3yew032c', res.data);
+                $appueStorage.push($rootScope.setConfig.pc, res.data);
+                $state.go('fm.index');
             }
         });
     };

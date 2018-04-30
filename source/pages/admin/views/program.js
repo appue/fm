@@ -9,12 +9,12 @@ Fm.controller('cProgram', function (
     };
 
     $appueWidget.ajaxRequest({
-        debug: true,
         scope: $scope,
         admin: true,
         url: 'getAdminProgram',
+        data: {},
         success: function (res) {
-            $scope.tView.list = res.data.list
+            $scope.tView.list = res.data.list;
         }
     });
 

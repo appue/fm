@@ -23,7 +23,13 @@ Fm.controller('cCompere', function (
 
     $scope.getContent();
 
+    // 添加
+    $scope.toAdd = function () {
 
+    };
+
+
+    // 删除
     $scope.toDelete = function (item) {
         $appueWidget.popConfirm({
             scope: $scope,

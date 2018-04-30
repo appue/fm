@@ -1,5 +1,5 @@
 const connect = require('../db').connect;
-const widget  = require('../widget');
+const widget  = require('../components/widget');
 
 exports.getAdmin = function (req, res, next) {
     connect((dbo, db) => {

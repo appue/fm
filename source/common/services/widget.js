@@ -149,6 +149,7 @@ Fm.factory('$appueWidget', function (
 					auth: false, //-----------是否需要登录
 					isPage: false, //----------是否分页
 					isLoading: true, //-----------显示loading动画
+					data: {},
 					success  : function () {} //--成功回调
 					// error: function () {}, //-----ajax请求遇到错误中断回调(可选)
 					// failure: function () {}, //---数据不符合要求的失败回调(可选)
@@ -162,9 +163,7 @@ Fm.factory('$appueWidget', function (
 				if (auth) {
 					opts.data.auth = auth;
 				} else {
-					$rootScope.$broadcast('view:showLogin', {
-						show: true
-					});
+					$rootScope.$broadcast('view:showLogin', {show: true});
 					return;
 				}
 			}
@@ -195,7 +194,23 @@ Fm.factory('$appueWidget', function (
 			if (opts.data) ajaxConfig.data     = opts.data || {};
 
 			$http(ajaxConfig).success(function (res) {
-				if (opts.success) opts.success(res);
+				if (!res.code) {
+					self.msgToast(res.message || '网络错误，请稍后重试');
+					return;
+				}
+				if (res.code == 1) {
+					if (opts.success) opts.success(res);
+				} else {
+					if (res.code == 2) {
+						if (opts.admin) {
+							$appueStorage.remove($rootScope.setConfig.pc);
+						} else {
+							$appueStorage.remove($rootScope.setConfig.app);
+							$rootScope.$broadcast('view:showLogin', {show: true});
+						}
+						return;
+					}
+				}
 			}).error(function (res) {
 				if (opts.error) opts.error();
 			});

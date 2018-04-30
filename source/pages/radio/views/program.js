@@ -9,11 +9,10 @@ Fm.controller('cProgram', function (
     };
 
     $appueWidget.ajaxRequest({
-        debug: true,
         scope: $scope,
         url: 'getProgram',
         success: function (res) {
-            $scope.tView.list = res.data;
+            $scope.tView.list = res.data.list;
         }
     })
 });

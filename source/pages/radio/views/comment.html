@@ -6,14 +6,14 @@
     </div>
 </header>
 <section class="views_comment">
-    <h2>对{{tView.program}}的评论</h2>
+    <h2>对{{tView.program.program}}的评论</h2>
     <ul>
         <li ng-repeat="(k,v) in tView.list track by $index">
             <h3 class="left">
                 <img ng-src="{{v.user.image}}" />
                 <div>
                     <p>{{v.user.name}}</p>
-                    <p>{{v.createtime}}</p>
+                    <p>{{v.createtime | date:'yyyy-MM-dd HH:mm:ss'}}</p>
                 </div>
             </h3>
             <article>{{v.content}}</article>

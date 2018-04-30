@@ -5,6 +5,7 @@
   "description": "fm",
   "main": "gulpfile.js",
   "devDependencies": {
+    "express": "^4.16.3",
     "gulp": "^3.9.1",
     "gulp-connect": "^5.5.0",
     "gulp-inject": "^4.3.2",
@@ -16,6 +17,7 @@
     "gulp-size": "^3.0.0",
     "gulp-uglify": "^3.0.0",
     "gulp-watch": "^5.0.0",
+    "md5": "^2.2.1",
     "yargs": "^11.0.0"
   },
   "scripts": {
@@ -29,6 +31,5 @@
   "author": "",
   "homepage": "",
   "license": "ISC",
-  "dependencies": {
-  }
+  "dependencies": {}
 }
