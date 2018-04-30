@@ -76,6 +76,8 @@ Fm.directive('viewProgram', function (
                             $appueWidget.msgToast('新增成功');
                         }
                         $scope.dView.show = false;
+
+                        $scope.$parent.$emit('view:showEditProgramSuccess', {});
                     }
                 })
             };

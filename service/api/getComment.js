@@ -6,7 +6,7 @@ const ObjectId = require('mongodb').ObjectId;
 exports.getComment = function (req, res, next) {
     if (!req.body.pid) return;
 
-    $$.find('comment', {pid: req.body.pid}).then(raw => {
+    $$.find('comment', {pid: req.body.pid, state: {$ne: 1}}).then(raw => {
         let uids = [];
         let pids = [];
 

@@ -1,20 +1,24 @@
 <view-header></view-header>
-
+<!--
 <ul class="mod_tab">
     <li ui-sref="fm.member" class="cur">用户管理</li>
     <li ui-sref="fm.compere">主持人管理</li>
-</ul>
+</ul> -->
 
 <section class="views_member">
-    <ul>
+    <ul ng-show="tView.list.length">
         <li ng-repeat="(k,v) in tView.list track by $index">
             <img ng-src="{{v.image}}" />
             <div>
                 <p>用户名：{{v.name}}</p>
-                <p>注册时间：{{v.createtime}}</p>
-                <p>最后登录时间：{{v.lasttime}}</p>
+                <p>注册时间：{{v.createtime | date:'yyyy-MM-dd HH:mm:ss'}}</p>
+                <p>最后登录时间：{{v.lasttime | date:'yyyy-MM-dd HH:mm:ss'}}</p>
             </div>
-            <button ng-click="toDelete(v)"><icon>&#xe60f;</icon>删除</button>
+            <button ng-click="toEdit(v)" class="mr20"><icon>&#xe62a;</icon>修改</button>
+            <button ng-show="!v.state" ng-click="toStop(v)"><icon>&#xe620;</icon>禁用</button>
+            <button ng-show="v.state" ng-click="toStart(v)"><icon>&#xe610;</icon>启用</button>
         </li>
     </ul>
 </section>
+
+<view-member></view-member>

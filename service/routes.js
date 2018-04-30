@@ -48,6 +48,12 @@ router.all('/setMember', require('./api/setMember').setMember); // 注册
 // 管理后台接口
 router.all('/getAdminLogin', require('./api/getAdminLogin').getAdminLogin); // 登录
 router.all('/getAdminProgram', require('./api/getAdminProgram').getAdminProgram); // 获取节目
+router.all('/getAdminComment', require('./api/getAdminComment').getAdminComment); // 获取评论
+router.all('/getAdminMember', require('./api/getAdminMember').getAdminMember); // 获取用户
+router.all('/setAdminMemberStop', require('./api/setAdminMemberStop').setAdminMemberStop); // 禁止用户
+router.all('/setAdminMemberStart', require('./api/setAdminMemberStart').setAdminMemberStart); // 启用用户
+router.all('/setAdminMemberEdit', require('./api/setAdminMemberEdit').setAdminMemberEdit); // 编辑用户
+router.all('/setAdminCommentDelete', require('./api/setAdminCommentDelete').setAdminCommentDelete); // 删除评论
 router.all('/setAdminPassword', require('./api/setAdminPassword').setAdminPassword); // 修改密码
 router.all('/setAdminProgram', require('./api/setAdminProgram').setAdminProgram); // 编辑、新增节目
 

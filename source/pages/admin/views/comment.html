@@ -11,8 +11,8 @@
             <h3>
                 <img ng-src="{{v.user.image}}" />
                 <div>
-                    <p>{{v.user.name}} 【{{v.program}}】</p>
-                    <p>{{v.createtime}}</p>
+                    <p>{{v.user.name}} 【{{v.program.program}}】</p>
+                    <p>{{v.createtime | date:'yyyy-MM-dd HH:mm:ss'}}</p>
                 </div>
             </h3>
             <article>{{v.content}}</article>

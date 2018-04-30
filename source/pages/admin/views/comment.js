@@ -10,7 +10,6 @@ Fm.controller('cComment', function (
 
     $scope.getContent = function () {
         $appueWidget.ajaxRequest({
-            debug: true,
             scope: $scope,
             admin: true,
             data: {},
@@ -23,20 +22,19 @@ Fm.controller('cComment', function (
 
     $scope.getContent();
 
-
     $scope.toDelete = function (item) {
         $appueWidget.popConfirm({
             scope: $scope,
             content: '确认要删除该条评论吗？',
    		    submit: function () {
-                alert(1);
                 $appueWidget.ajaxRequest({
                     scope: $scope,
                     admin: true,
-                    data: {id: item.id},
-                    url: 'deleteComment',
+                    data: {id: item._id},
+                    url: 'setAdminCommentDelete',
                     success: function (res) {
-
+                        $appueWidget.msgToast('删除评论成功');
+                        $scope.getContent();
                     }
                 });
             }
