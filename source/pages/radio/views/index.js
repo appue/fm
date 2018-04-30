@@ -20,10 +20,9 @@ Fm.controller('cIndex', function (
 
     $appueWidget.ajaxRequest({
         scope: $scope,
-        debug: true,
-        url: 'getList',
+        url: 'getIndex',
         success: function (res) {
-            $scope.tView.list = res.data;
+            $scope.tView.list = res.data.list;
         }
     });
 });

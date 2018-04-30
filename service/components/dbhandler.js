@@ -23,7 +23,7 @@ module.exports = {
     find (collection, selector) {
         return new Promise((resolve, reject) => {
             connect((dbo, db) => {
-                dbo.collection(collection).find(selector).toArray((err, res) => {
+                dbo.collection(collection).find(selector).sort([['_id',-1]]).toArray((err, res) => {
                     if (err) {
                         console.log('Error:'+ err);
                         reject(err);

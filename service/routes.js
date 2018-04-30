@@ -37,7 +37,9 @@ router.use(function setheader(req, res, next) {
 });
 
 // 前台接口
+router.all('/getIndex', require('./api/getIndex').getIndex); // 首页
 router.all('/getProgram', require('./api/getProgram').getProgram); // 获取节目
+router.all('/getProgramDetail', require('./api/getProgramDetail').getProgramDetail); // 获取节目详情
 router.all('/getLogin', require('./api/getLogin').getLogin); // 登录
 router.all('/getComment', require('./api/getComment').getComment); // 获取评论
 router.all('/setComment', require('./api/setComment').setComment); // 发布评论

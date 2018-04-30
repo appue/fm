@@ -3,18 +3,18 @@
         <div class="cur"><span>动态</span></div>
         <div ui-sref="fm.program"><span>节目</span></div>
     </div>
-    <ul class="tr_list">
+    <ul ng-show="tView.list.length" class="tr_list">
         <li ng-repeat="(k, v) in tView.list track by $index">
             <h3>
                 <img ng-src="{{v.user.image}}" />
                 <div>
-                    <p>{{v.subject}}</p>
-                    <p>{{v.createtime}}</p>
+                    <p>{{v.user.name}}</p>
+                    <p>{{v.createtime | date:'yyyy-MM-dd HH:mm:ss'}}</p>
                 </div>
             </h3>
             <article>{{v.content}}</article>
             <div>
-                <p ui-sref="fm.play({pid:v.pid})">来自{{v.program}}</p>
+                <p ui-sref="fm.play({pid:v.pid})">来自{{v.program.program}}</p>
                 <p ng-click="toComment(v)"><icon>&#xe647;</icon>评论</p>
             </div>
         </li>

@@ -25,7 +25,7 @@ Fm.directive('viewLogin', function (
 
             $rootScope.$on('view:showLogin', function (e, res) {
                 if (res.route) {
-                    var auth = $appueStorage.pull('fm_lvt_i98wety398');
+                    var auth = $appueStorage.pull($rootScope.setConfig.app);
                     if (auth) {
                         $state.go(res.route, res.opts || {});
                         return;

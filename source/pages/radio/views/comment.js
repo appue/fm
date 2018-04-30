@@ -16,17 +16,19 @@ Fm.controller('cComment', function (
         history.back();
     };
 
-    $appueWidget.ajaxRequest({
-        scope: $scope,
-        url: 'getComment',
-        data: {
-            pid: $scope.tView.pid
-        },
-        success: function (res) {
-            $scope.tView.list = res.data.list;
-            $scope.tView.program = res.data.program;
-        }
-    });
+    $scope.getContent = function () {
+        $appueWidget.ajaxRequest({
+            scope: $scope,
+            url: 'getComment',
+            data: {pid: $scope.tView.pid},
+            success: function (res) {
+                $scope.tView.list = res.data.list;
+                $scope.tView.program = res.data.program;
+            }
+        });
+    }
+
+    $scope.getContent();
 
     $scope.toSubmit = function () {
         if (!$scope.tInput.content) return;
@@ -42,6 +44,7 @@ Fm.controller('cComment', function (
             success: function (res) {
                 $appueWidget.msgToast('评论发表成功');
                 $scope.tInput.content = '';
+                $scope.getContent();
             }
         });
     };
