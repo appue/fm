@@ -46,6 +46,7 @@ router.all('/setComment', require('./api/setComment').setComment); // 发布评�
 router.all('/setMember', require('./api/setMember').setMember); // 注册
 
 // 管理后台接口
+router.all('/getAdminIndex', require('./api/getAdminIndex').getAdminIndex); // 首页
 router.all('/getAdminLogin', require('./api/getAdminLogin').getAdminLogin); // 登录
 router.all('/getAdminProgram', require('./api/getAdminProgram').getAdminProgram); // 获取节目
 router.all('/getAdminComment', require('./api/getAdminComment').getAdminComment); // 获取评论

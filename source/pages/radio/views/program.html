@@ -6,7 +6,14 @@
 
     <ul class="tr_list">
         <li ng-repeat="(k,v) in tView.list track by $index" ui-sref="fm.play({pid:v.pid})">
-            <p>{{v.program}}</p>
+            <div style="background:url({{v.image}}) center center no-repeat;background-size:cover;)">
+                <icon ng-show="!setConfig.audio.state || setConfig.audio.media != v.media">&#xe635;</icon>
+                <icon ng-show="setConfig.audio.state && setConfig.audio.media==v.media">&#xe638;</icon>
+            </div>
+            <div>
+                <h3>{{v.program}}</h3>
+                <article>{{v.content}}</article>
+            </div>
         </li>
     </ul>
 </section>

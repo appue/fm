@@ -6,6 +6,7 @@
  */
 Fm.factory('$appueWidget', function (
 	$http,
+	$state,
 	$compile,
 	$timeout,
 	$rootScope,

@@ -4,4 +4,16 @@ Fm.controller('cIndex', function (
     $appueWidget,
     $appueStorage
 ){
+    $scope.tView = {
+        list: []
+    };
+
+    $appueWidget.ajaxRequest({
+        scope: $scope,
+        admin: true,
+        url: 'getAdminIndex',
+        success: function (res) {
+            $scope.tView.list = res.data.list;
+        }
+    });
 });

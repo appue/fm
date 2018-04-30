@@ -5,9 +5,16 @@
         <img ng-src="/themes/img/admin/banner.jpg" />
     </div>
 
-    <ul>
-        <li>
-            asdfasdfsd
+    <ul class="tr_list">
+        <li ng-repeat="(k,v) in tView.list track by $index">
+            <h3>
+                <img ng-src="{{v.user.image}}" />
+                <div>
+                    <p>{{v.user.name}} 【{{v.program.program}}】</p>
+                    <p>{{v.createtime | date:'yyyy-MM-dd HH:mm:ss'}}</p>
+                </div>
+            </h3>
+            <article>{{v.content}}</article>
         </li>
     </ul>
 </section>
