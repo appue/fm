@@ -23,7 +23,9 @@
   "scripts": {
     "dev": "gulp",
     "service": "node ./service/bin/start",
-    "mongo": "mongo"
+    "mongo": "mongo",
+    "start": "brew services start mongodb",
+    "stop": "brew services stop mongodb"
   },
   "repository": {
     "type": "git",
