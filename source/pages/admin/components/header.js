@@ -21,6 +21,12 @@ Fm.directive('viewHeader', function (
                 $appueStorage.remove($rootScope.setConfig.pc);
                 $state.go('fm.login');
             };
+
+            $scope.toChange = function () {
+                $scope.$broadcast('view:showEditPassword', {
+                    show: true
+                });
+            };
         }
     }
 });

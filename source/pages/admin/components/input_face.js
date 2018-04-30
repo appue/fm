@@ -1,4 +1,4 @@
-Fm.directive('inputImages', function (
+Fm.directive('inputFace', function (
     $state,
     $rootScope,
     $appueWidget,
@@ -9,19 +9,19 @@ Fm.directive('inputImages', function (
         replace : true,
         require : '^ngModel',
         scope   : {},
-        templateUrl: 'components/input_images.html',
+        templateUrl: 'components/input_face.html',
         link: function ($scope, $element, $attrs, ngModel) {
             $scope.dImages = [
-                {image: '/themes/img/program/01.jpg'},
-                {image: '/themes/img/program/02.jpg'},
-                {image: '/themes/img/program/03.jpg'},
-                {image: '/themes/img/program/04.jpg'},
-                {image: '/themes/img/program/05.jpg'},
-                {image: '/themes/img/program/06.jpg'},
-                {image: '/themes/img/program/07.jpg'},
-                {image: '/themes/img/program/08.jpg'},
-                {image: '/themes/img/program/09.jpg'},
-                {image: '/themes/img/program/10.jpg'}
+                {image: '/themes/img/face/01.jpg'},
+                {image: '/themes/img/face/02.jpg'},
+                {image: '/themes/img/face/03.jpg'},
+                {image: '/themes/img/face/04.jpg'},
+                {image: '/themes/img/face/05.jpg'},
+                {image: '/themes/img/face/06.jpg'},
+                {image: '/themes/img/face/07.jpg'},
+                {image: '/themes/img/face/08.jpg'},
+                {image: '/themes/img/face/09.jpg'},
+                {image: '/themes/img/face/10.jpg'}
             ];
             $scope.dInput = {image: ''};
 

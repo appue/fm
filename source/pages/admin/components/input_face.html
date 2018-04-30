@@ -1,0 +1,5 @@
+<div class="input_images">
+    <p ng-repeat="(k,v) in dImages track by $index" ng-class="{'cur': dInput.image == v.image}" ng-click="toSelect(v)">
+        <img ng-src="{{v.image}}" />
+    </p>
+</div>

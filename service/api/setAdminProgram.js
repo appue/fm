@@ -1,6 +1,6 @@
-const connect = require('../db').connect;
-const widget  = require('../components/widget');
-const $$  = require('../components/dbhandler');
+const connect  = require('../db').connect;
+const widget   = require('../components/widget');
+const $$       = require('../components/dbhandler');
 const ObjectId = require('mongodb').ObjectId;
 
 exports.setAdminProgram = function (req, res, next) {
@@ -9,11 +9,10 @@ exports.setAdminProgram = function (req, res, next) {
         let type = 'add';
         if (data.pid) type = 'edit';
 
-        if (!data.program) return;
-        if (!data.media) return;
-        if (!data.compere) return;
-        if (!data.image) return;
-        if (!data.content) return;
+        if (!data.program || !data.media || !data.compere || !data.image || !data.content) {
+            res.json(widget.setReponse('03'));
+            return;
+        }
 
         const opts = {
             "program": data.program,
@@ -28,11 +27,11 @@ exports.setAdminProgram = function (req, res, next) {
 
         if (type == 'edit') {
             $$.updates('program', {"_id": ObjectId(data.pid)}, opts).then(raw => {
-                res.json(widget.setSuccess({pid: data.pid}));
+                res.json(widget.setReponse('01', {pid: data.pid}));
             });
         } else {
             $$.insert('program', opts).then(raw => {
-                res.json(widget.setSuccess());
+                res.json(widget.setReponse('01'));
             });
         }
     }, err => {

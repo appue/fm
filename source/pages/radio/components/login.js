@@ -73,6 +73,11 @@ Fm.directive('viewLogin', function (
                     },
                     url: 'setMember',
                     success: function (res) {
+                        $scope.dInput = {
+                            username: '',
+                            password: '',
+                            password1: ''
+                        };
                         $appueStorage.push($rootScope.setConfig.app, res.data);
                         $scope.dView.show = false;
                     }
@@ -98,6 +103,11 @@ Fm.directive('viewLogin', function (
                     },
                     url: 'getLogin',
                     success: function (res) {
+                        $scope.dInput = {
+                            username: '',
+                            password: '',
+                            password1: ''
+                        };
                         $appueStorage.push($rootScope.setConfig.app, res.data);
                         $scope.dView.show = false;
                     }

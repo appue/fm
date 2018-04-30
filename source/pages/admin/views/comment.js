@@ -1,6 +1,7 @@
 'use strict';
 Fm.controller('cComment', function (
     $scope,
+    $stateParams,
     $appueWidget,
     $appueStorage
 ){
@@ -9,10 +10,14 @@ Fm.controller('cComment', function (
     };
 
     $scope.getContent = function () {
+        const opts = {};
+
+        if ($stateParams.pid) opts.pid = $stateParams.pid;
+
         $appueWidget.ajaxRequest({
             scope: $scope,
             admin: true,
-            data: {},
+            data: opts,
             url: 'getAdminComment',
             success: function (res) {
                 $scope.tView.list = res.data.list;

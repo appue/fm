@@ -19,6 +19,7 @@ Fm.run(function (
 	$rootScope.isWechat  = (/micromessenger/.test(ua)) ? true : false;
 	$rootScope.isApple   = (/iphone|ipad|ipod/.test(ua)) ? true : false;
 	$rootScope.isAndroid = (/android/.test(ua)) ? true : false;
+	$rootScope.isLoading = false;
 
 	$rootScope.setConfig = {
 		app: 'lvt_i98wety398',

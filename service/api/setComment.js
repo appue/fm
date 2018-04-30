@@ -1,14 +1,16 @@
-const connect = require('../db').connect;
-const widget  = require('../components/widget');
-const $$  = require('../components/dbhandler');
+const connect  = require('../db').connect;
+const widget   = require('../components/widget');
+const $$       = require('../components/dbhandler');
 const ObjectId = require('mongodb').ObjectId;
 
 exports.setComment = function (req, res, next) {
     widget.checkAuth(res, req, 'app').then(user => {
         const data = req.body;
 
-        if (!data.pid) return;
-        if (!data.content) return;
+        if (!data.pid || !data.content) {
+            res.json(widget.setReponse('03'));
+            return;
+        }
 
         const opts = {
             "pid": data.pid,
@@ -19,7 +21,7 @@ exports.setComment = function (req, res, next) {
         };
 
         $$.insert('comment', opts).then(raw => {
-            res.json(widget.setSuccess({pid: data.pid}));
+            res.json(widget.setReponse('01', {pid: data.pid}));
         });
     }, err => {
         res.json(widget.setReponse('02'));

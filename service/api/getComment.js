@@ -1,10 +1,13 @@
-const connect = require('../db').connect;
-const widget  = require('../components/widget');
-const $$  = require('../components/dbhandler');
+const connect  = require('../db').connect;
+const widget   = require('../components/widget');
+const $$       = require('../components/dbhandler');
 const ObjectId = require('mongodb').ObjectId;
 
 exports.getComment = function (req, res, next) {
-    if (!req.body.pid) return;
+    if (!req.body.pid) {
+        res.json(widget.setReponse('03'));
+        return;
+    }
 
     $$.find('comment', {pid: req.body.pid, state: {$ne: 1}}).then(raw => {
         let uids = [];

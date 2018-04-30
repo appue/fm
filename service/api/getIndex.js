@@ -1,10 +1,10 @@
-const connect = require('../db').connect;
-const widget  = require('../components/widget');
-const $$  = require('../components/dbhandler');
+const connect  = require('../db').connect;
+const widget   = require('../components/widget');
+const $$       = require('../components/dbhandler');
 const ObjectId = require('mongodb').ObjectId;
 
 exports.getIndex = function (req, res, next) {
-    $$.find('comment', {}).then(raw => {
+    $$.find('comment', {state: {$ne: 1}}).then(raw => {
         let uids = [];
         let pids = [];
 
@@ -12,7 +12,7 @@ exports.getIndex = function (req, res, next) {
             uids.push(ObjectId(v.uid));
             pids.push(ObjectId(v.pid));
         });
-        
+
         Promise.all([
             $$.find('member', {'_id': {'$in': uids}}),
             $$.find('program', {'_id': {'$in': pids}})

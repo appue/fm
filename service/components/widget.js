@@ -92,31 +92,15 @@ module.exports = {
                 obj.code = 2;
                 obj.message = "用户名或密码错误";
             break;
-        }
 
-        return obj;
-    },
+            case '03':
+                obj.code = 3;
+                obj.message = "缺少必要参数";
+            break;
 
-    setSuccess (res) {
-        const obj = {
-            time: new Date().getTime()
-        };
-        obj.data = res;
-        obj.code = 1;
-
-        return obj;
-    },
-
-    setError (type) {
-        const obj = {
-            data: '',
-            time: new Date().getTime()
-        };
-
-        switch (type) {
-            case '01':
-                obj.code = 0;
-                obj.message = "用户名或密码错误";
+            case '04':
+                obj.code = 4;
+                obj.message = "输入有误";
             break;
         }
 

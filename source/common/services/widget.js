@@ -136,6 +136,8 @@ Fm.factory('$appueWidget', function (
 			var self = this;
 			if (!params || !params.url) return;
 
+			if ($rootScope.isLoading) return;
+
 			if (params.debug) {
 				var _json = '../../../debug/'+ params.url +'.json?v='+ new Date().getTime();
 
@@ -194,7 +196,10 @@ Fm.factory('$appueWidget', function (
 			if (opts.params) ajaxConfig.params = opts.params || {};
 			if (opts.data) ajaxConfig.data     = opts.data || {};
 
+			$rootScope.isLoading = true;
+
 			$http(ajaxConfig).success(function (res) {
+				$rootScope.isLoading = false;
 				if (!res.code) {
 					self.msgToast(res.message || '网络错误，请稍后重试');
 					return;
@@ -210,9 +215,17 @@ Fm.factory('$appueWidget', function (
 							$rootScope.$broadcast('view:showLogin', {show: true});
 						}
 						return;
+					} else {
+						if (opts.failure) {
+							opts.failure(res);
+							return;
+						} else {
+							self.msgToast(res.message || '网络错误，请稍后重试！');
+						}
 					}
 				}
 			}).error(function (res) {
+				$rootScope.isLoading = false;
 				if (opts.error) opts.error();
 			});
 		},
