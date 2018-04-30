@@ -22,7 +22,8 @@
   },
   "scripts": {
     "dev": "gulp",
-    "service": "node ./service/bin/start"
+    "service": "node ./service/bin/start",
+    "mongo": "mongo"
   },
   "repository": {
     "type": "git",
