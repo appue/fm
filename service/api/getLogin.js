@@ -11,12 +11,18 @@ exports.getLogin = function (req, res, next) {
         res.json(widget.setReponse('03'));
         return;
     }
-    
+
     $$.find('member', {name:data.username, password:data.password}).then(raw => {
         if (raw && !raw.length) {
             res.json(widget.setReponse('02'));
         } else {
-            res.json(widget.setReponse('01', raw[0].auth));
+            // res.json(widget.setReponse('01', raw[0].auth));
+            const tnow = new Date().getTime();
+            const auth = widget.getAuth({name: data.username, password: data.password});
+
+            $$.updates('member', {'name': data.username}, {auth, lasttime:tnow}).then(resp => {
+                res.json(widget.setReponse('01', auth));
+            });
         }
     });
 };

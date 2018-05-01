@@ -4,8 +4,7 @@ const $$      = require('../components/dbhandler');
 const md5     = require('md5');
 const config  = require('../config');
 
-const sql = require('../components/sql');
-
+// const sql = require('../components/sql');
 
 exports.getAdminLogin = function (req, res, next) {
     const data = req.body;
@@ -19,7 +18,12 @@ exports.getAdminLogin = function (req, res, next) {
         if (raw && !raw.length) {
             res.json(widget.setReponse('02'));
         } else {
-            res.json(widget.setReponse('01', raw[0].auth));
+            const tnow = new Date().getTime();
+            const auth = widget.getAuth({name: data.username, password: data.password});
+
+            $$.updates('admin', {'name': data.username}, {auth, lasttime:tnow}).then(resp => {
+                res.json(widget.setReponse('01', auth));
+            });
         }
     });
 

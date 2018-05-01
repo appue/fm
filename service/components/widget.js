@@ -64,9 +64,10 @@ module.exports = {
      * @param {[string]} name     用户名
      */
     getAuth (params) {
+        const tnow = new Date().getTime();
         const opts = {
-            time: params.time || parseInt(new Date().getTime(), 0),
-            last: parseInt(params.last, 0) + config.auth,
+            time: params.time || tnow,
+            last: params.last ? parseInt(params.last, 0) + config.auth : tnow + config.auth,
             password: params.password,
             name: params.name
         };

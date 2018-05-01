@@ -210,6 +210,7 @@ Fm.factory('$appueWidget', function (
 					if (res.code == 2) {
 						if (opts.admin) {
 							$appueStorage.remove($rootScope.setConfig.pc);
+							$state.go('fm.login');
 						} else {
 							$appueStorage.remove($rootScope.setConfig.app);
 							$rootScope.$broadcast('view:showLogin', {show: true});
