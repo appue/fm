@@ -29,5 +29,5 @@ Fm.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
 		}
 	})
 	;
-	$urlRouterProvider.otherwise('index.htm');
+	$urlRouterProvider.otherwise('path.htm');
 });

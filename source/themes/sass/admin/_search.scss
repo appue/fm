@@ -1,0 +1,19 @@
+.mod_search {
+    padding: 2.0rem;
+    @include box();
+    input {
+        line-height: 2.0rem;
+        padding: 1.0rem;
+        display: block;
+        @include box-flex();
+        @include border-radius($type:left, $radius:2.0rem);
+    }
+    div {
+        @include height-line(4.0rem);
+        padding: 0 2.0rem;
+        background: $yellow;
+        color: #000;
+        cursor: pointer;
+        @include border-radius($type:right, $radius:2.0rem);
+    }
+}

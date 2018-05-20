@@ -8,8 +8,13 @@ const md5     = require('md5');
 
 exports.getAdminProgram = function (req, res, next) {
     widget.checkAuth(res, req, 'admin').then(user => {
+        const data = req.body;
+        const selector = {};
+        if (data.keyword) {
+            selector.program = eval("/"+ data.keyword +"/");
+        }
         // sql.createProgram(res);
-        $$.find('program', {}).then(raw => {
+        $$.find('program', selector).then(raw => {
             if (raw && !raw.length) {
                 res.json(widget.setReponse('02'));
             } else {

@@ -8,6 +8,11 @@
     </li>
 </ul>
 
+<section class="mod_search">
+    <input ng-model="tInput.keyword" type="text" placeholder="请输入节目关键字" />
+    <div ng-click="toSearch()">搜索</div>
+</section>
+
 <section class="views_program">
     <ul class="tr_list">
         <li ng-repeat="(k,v) in tView.list track by $index">

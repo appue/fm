@@ -39,6 +39,7 @@ Fm.controller('cLogin', function (
             },
             url: 'getAdminLogin',
             success: function (res) {
+                console.log(res);
                 $appueStorage.push($rootScope.setConfig.pc, res.data);
                 $state.go('fm.index');
             }
