@@ -1,15 +1,10 @@
-const connect  = require('../db').connect;
-const widget   = require('../components/widget');
-const $$       = require('../components/dbhandler');
+const connect  = require('../../db').connect;
+const widget   = require('../../components/widget');
+const $$       = require('../../components/dbhandler');
 const ObjectId = require('mongodb').ObjectId;
 
-exports.getComment = function (req, res, next) {
-    if (!req.body.pid) {
-        res.json(widget.setReponse('03'));
-        return;
-    }
-
-    $$.find('comment', {pid: req.body.pid, state: {$ne: 1}}).then(raw => {
+exports.getIndex = function (req, res, next) {
+    $$.find('comment', {state: {$ne: 1}}).then(raw => {
         let uids = [];
         let pids = [];
 
@@ -23,7 +18,7 @@ exports.getComment = function (req, res, next) {
             $$.find('program', {'_id': {'$in': pids}})
         ]).then(resp => {
             let mb = {};
-            let pm = resp[1][0];
+            let pm = {};
 
             resp[0].forEach((v, k) => {
                 mb[v._id] = {
@@ -32,15 +27,20 @@ exports.getComment = function (req, res, next) {
                     uid: v._id
                 };
             });
+            resp[1].forEach((v, k) => {
+                pm[v._id] = {
+                    program: v.program,
+                    image: v.image,
+                    media: v.media
+                };
+            });
 
             raw.forEach((v, k) => {
                 v.user = mb[v.uid];
+                v.program = pm[v.pid];
             });
 
-            res.json(widget.setReponse('01', {
-                list: raw,
-                program: pm
-            }));
+            res.json(widget.setReponse('01', {list: raw}));
         });
     });
 };

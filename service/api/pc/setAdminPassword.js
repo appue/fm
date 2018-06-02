@@ -1,6 +1,6 @@
-const connect  = require('../db').connect;
-const widget   = require('../components/widget');
-const $$       = require('../components/dbhandler');
+const connect  = require('../../db').connect;
+const widget   = require('../../components/widget');
+const $$       = require('../../components/dbhandler');
 const md5      = require('md5');
 const ObjectId = require('mongodb').ObjectId;
 

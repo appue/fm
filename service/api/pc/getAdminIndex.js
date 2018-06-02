@@ -1,9 +1,9 @@
-const connect  = require('../db').connect;
-const widget   = require('../components/widget');
-const $$       = require('../components/dbhandler');
+const connect  = require('../../db').connect;
+const widget   = require('../../components/widget');
+const $$       = require('../../components/dbhandler');
 const ObjectId = require('mongodb').ObjectId;
 
-exports.getAdminComment = function (req, res, next) {
+exports.getAdminIndex = function (req, res, next) {
     widget.checkAuth(res, req, 'admin').then(user => {
         const opts = {
             state: {$ne: 1}

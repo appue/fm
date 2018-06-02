@@ -55,6 +55,19 @@ Fm.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
 			}
 		}
 	})
+	/**
+	 * 个人中心
+	 * @method member
+	 */
+	.state('fm.member', {
+		url: 'member.htm',
+		views: {
+			'': {
+				templateUrl: 'views/member.html',
+				controller: 'cMember'
+			}
+		}
+	})
 	;
 	$urlRouterProvider.otherwise('index.htm');
 });

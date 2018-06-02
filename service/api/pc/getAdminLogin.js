@@ -1,8 +1,8 @@
-const connect = require('../db').connect;
-const widget  = require('../components/widget');
-const $$      = require('../components/dbhandler');
+const connect = require('../../db').connect;
+const widget  = require('../../components/widget');
+const $$      = require('../../components/dbhandler');
 const md5     = require('md5');
-const config  = require('../config');
+const config  = require('../../config');
 
 // const sql = require('../components/sql');
 

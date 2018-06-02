@@ -1,6 +1,6 @@
-const connect = require('../db').connect;
-const widget  = require('../components/widget');
-const $$      = require('../components/dbhandler');
+const connect = require('../../db').connect;
+const widget  = require('../../components/widget');
+const $$      = require('../../components/dbhandler');
 
 exports.getProgram = function (req, res, next) {
     $$.find('program', {}).then(raw => {
