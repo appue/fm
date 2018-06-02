@@ -1,6 +1,6 @@
 <section class="views_play" style="background:url({{tView.bg}}) 0 0 no-repeat;background-size:cover;">
     <div class="tr_subject">{{tView.detail.program}}</div>
-    <div ng-click="toPlay()" class="tr_img">
+    <div ng-click="toPlay()" class="tr_img" ng-class="{'playing': setConfig.audio.state && setConfig.audio.media==tView.detail.media}">
         <img ng-src="{{tView.detail.image}}" />
         <icon ng-show="!setConfig.audio.state || setConfig.audio.media != tView.detail.media">&#xe635;</icon>
         <icon ng-show="setConfig.audio.state && setConfig.audio.media==tView.detail.media">&#xe638;</icon>

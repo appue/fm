@@ -26,9 +26,16 @@
             @include position($left:0, $top:0, $index:2);
             @include box($align:center, $pack:center);
         }
+        &.playing img {
+            -webkit-animation: spin 4s infinite linear;
+        }
+        @keyframes spin {
+            0%   { transform: rotate(0); }
+            100% { transform: rotate(360deg); }
+        }
     }
     .tr_subject {
-        
+
     }
     .tr_text {
         line-height: 1.8rem;
