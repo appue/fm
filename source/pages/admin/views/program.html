@@ -9,7 +9,7 @@
 </ul>
 
 <section class="mod_search">
-    <input ng-model="tInput.keyword" type="text" placeholder="请输入节目关键字" />
+    <input ng-model="tInput.keyword" ng-enter="toSearch()" type="text" placeholder="请输入节目关键字" />
     <div ng-click="toSearch()">搜索</div>
 </section>
 
@@ -25,6 +25,9 @@
                 <button ng-click="toEdit(v)" class="mod_btn mr10"><icon>&#xe62f;</icon>编辑</button>
                 <button ui-sref="fm.comment({pid:v.pid})" class="mod_btn"><icon>&#xe62b;</icon>查看评论</button>
             </div>
+        </li>
+        <li ng-show="!tView.list.length">
+            没搜索到相关的数据
         </li>
     </ul>
 </section>

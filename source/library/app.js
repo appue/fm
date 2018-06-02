@@ -22,8 +22,8 @@ Fm.run(function (
 	$rootScope.isLoading = false;
 
 	$rootScope.setConfig = {
-		app: 'lvt_i98wety398',
-		pc: 'mga_va34etd3e8',
+		app: 'lvt_i98wety398', // App版auth存储字段
+		pc: 'mga_va34etd3e8', // PC版auth存储字段
 		member: '/themes/img/face/',
 		program: '/themes/img/program/',
 		audio: {

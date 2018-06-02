@@ -52,7 +52,7 @@ Fm.directive('viewProgram', function (
                     return;
                 }
                 if (!$scope.dInput.compere) {
-                    $appueWidget.msgToast('请选择主持人');
+                    $appueWidget.msgToast('请输入主持人名称');
                     return;
                 }
                 var opts = {

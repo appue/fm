@@ -20,7 +20,7 @@
         </li>
     </ul>
     <div class="tr_btn">
-        <input ng-model="tInput.content" type="text" />
+        <input ng-model="tInput.content" ng-enter="toSubmit()" placeholder="请发表您的观点" type="text" />
         <button ng-click="toSubmit()" ng-class="{'show': tInput.content.length}">&#xe621;</button>
     </div>
 </section>

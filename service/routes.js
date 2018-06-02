@@ -1,21 +1,14 @@
 const express = require('express');
 const router  = express.Router();
-// var datas   = require('./api/data');
 
 router.use(function setheader(req, res, next) {
 
-    // res.header("Content-Type", "text/plain");
-    // res.header("Access-Control-Allow-Origin", "http://localhost:7777");
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Content-Type,Content-Length, Authorization, Accept,X-Requested-With");
     res.header("Access-Control-Allow-Methods", "POST, GET, OPTIONS");
     res.header("Content-Type", "application/json");
     res.header("X-Powered-By", "Express");
     res.header("Access-Control-Max-Age", 3600);
-
-    // console.log(req.params);
-    // console.log(req.hostname);
-    // console.log(req.method);
 
     if (req.method == "OPTIONS") {
         res.sendStatus(200);

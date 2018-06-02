@@ -29,7 +29,7 @@ Fm.controller('cProgram', function (
 
     $scope.toSearch = function () {
         if (!$scope.tInput.keyword) {
-            $appueWidget.showToast('请输入搜索的关键字');
+            $appueWidget.msgToast('请输入搜索的关键字');
             return;
         }
         $scope.getContent();

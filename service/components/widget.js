@@ -91,18 +91,22 @@ module.exports = {
 
             case '02':
                 obj.code = 2;
-                obj.message = "用户名或密码错误";
+                obj.message = '用户名或密码错误';
             break;
 
             case '03':
                 obj.code = 3;
-                obj.message = "缺少必要参数";
+                obj.message = '缺少必要参数';
             break;
 
             case '04':
                 obj.code = 4;
-                obj.message = "输入有误";
+                obj.message = '输入有误';
             break;
+
+            case '05':
+                obj.code = 5;
+                ojb.message = '网络错误，请稍后重试';
         }
 
         return obj;

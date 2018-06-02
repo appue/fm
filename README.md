@@ -1,25 +1,30 @@
+### 基础环境
+	npm install
 ### 开发
 	npm run dev
-
-
+	npm run service
+	npm run mongo
 ### mongo
-
-mongo
-https://www.cnblogs.com/best/p/6212807.html
-
-db.admin.find().pretty()
-db.createCollection("admin")
-
-查看全部数据库
-show dbs
-显示当前数据库中的集合（类似关系数据库中的表）
-show collections
-查看当前数据库的用户信息
-show users
-切换数据库跟mysql一样
-use <db name>
-查看当前所在数据库
-db
+1、显示数据库
+	show dbs
+2、切换到FM
+	use fm
+3、查看当前数据库中的集合（类似关系数据库中的表）
+	show collections
+4、查看当前数据库的用户信息
+	show users
+5、查看当前所在的库
+	db
+6、查看集合中数据
+	db.<collectionsName>.find().pretty()
+7、创建集合
+	db.createCollection('<collectionsName>')
+	db.createCollection('collName', {size:20, capped:5, max:100});
+	判断集合是否为定容量db.collName.isCapped();
+8、得到当前db的所有聚集集合
+	db.getCollectionNames();
+9、得到指定名称的聚集集合（table）
+	db.getCollection("account");  
 
 ##### Collection聚集集合
 1、创建一个聚集集合（table）

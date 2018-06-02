@@ -31,7 +31,10 @@ Fm.controller('cComment', function (
     $scope.getContent();
 
     $scope.toSubmit = function () {
-        if (!$scope.tInput.content) return;
+        if (!$scope.tInput.content) {
+            $appueWidget.msgToast('请输入您想说的内容');
+            return;
+        }
 
         $appueWidget.ajaxRequest({
             scope: $scope,

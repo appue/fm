@@ -1,5 +1,6 @@
 Fm.directive('viewPassword', function (
     $state,
+    $timeout,
     $rootScope,
     $appueWidget,
     $appueStorage
@@ -46,9 +47,13 @@ Fm.directive('viewPassword', function (
                     },
                     url: 'setAdminPassword',
                     success: function (res) {
-                        $appueWidget.msgToast('更新成功');
+                        $appueWidget.msgToast('密码更新成功');
                         $scope.dView.show = false;
                         $scope.$parent.$emit('view:showEditPasswordSuccess', {});
+                        $timeout(function () {
+                            $appueStorage.remove($rootScope.setConfig.pc);
+                            $state.go('fm.login');
+                        }, 1000);
                     }
                 });
             };

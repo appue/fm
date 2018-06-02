@@ -17,7 +17,7 @@ exports.connect = (cb) => {
         //         password: 1111
         //     }
         // ];
-        // dbo.collection('pm').insertMany(arrs, (err, res) => {
+        // dbo.collection('admin').insertMany(arrs, (err, res) => {
         //     if (err) throw err;
         //     console.log("插入的文档数量为: " + res.insertedCount);
         //     db.close();

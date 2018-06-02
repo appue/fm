@@ -46,7 +46,7 @@ Fm.directive('viewMember', function (
                     data: opts,
                     url: 'setAdminMemberEdit',
                     success: function (res) {
-                        $appueWidget.msgToast('更新成功');
+                        $appueWidget.msgToast('用户信息更新成功');
                         $scope.dView.show = false;
                         $scope.$parent.$emit('view:showEditMemberSuccess', {});
                     }
