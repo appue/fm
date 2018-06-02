@@ -4,6 +4,30 @@
             padding: 0.5rem 1.0rem;
             line-height: 2.0rem;
             border-bottom: 1px solid #eee;
+            p {
+                @include box($align:center, $pack:justify);
+                icon {
+                    display: block;
+                }
+            }
+            div {
+                @include box();
+                margin-bottom: 1.0rem;
+                input {
+                    display: block;
+                    background: #f8f8f8;
+                    @include box-flex();
+                    line-height: 2.0rem;
+                    padding: 0.5rem 1.0rem;
+                }
+            }
+            button {
+                display: block;
+                margin: 0 auto;
+                width: 100%;
+                line-height: 3.0rem;
+                background: $yellow;
+            }
         }
     }
 }

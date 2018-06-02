@@ -37,6 +37,7 @@ router.all('/getLogin', require('./api/app/getLogin').getLogin); // 登录
 router.all('/getComment', require('./api/app/getComment').getComment); // 获取评论
 router.all('/setComment', require('./api/app/setComment').setComment); // 发布评论
 router.all('/setMember', require('./api/app/setMember').setMember); // 注册
+router.all('/setPassword', require('./api/app/setPassword').setPassword); // 修改密码
 
 // 管理后台接口
 router.all('/getAdminIndex', require('./api/pc/getAdminIndex').getAdminIndex); // 首页

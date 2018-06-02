@@ -2,6 +2,7 @@
 // 播放页面
 Fm.controller('cPlay', function (
     $scope,
+    $rootScope,
     $appueWidget,
     $stateParams
 ){
@@ -25,4 +26,11 @@ Fm.controller('cPlay', function (
             $scope.tView.detail = res.data;
         }
     });
+
+    $scope.toMember = function () {
+        $rootScope.$broadcast('view:showLogin', {
+            show: true,
+            route: 'fm.member'
+        });
+    };
 });

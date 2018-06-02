@@ -2,16 +2,22 @@
     <div>
         <icon ng-click="toBack()">&#xe600;</icon>
         <p>个人中心</p>
-        <icon ng-click="toBack()">&#xe652;</icon>
+        <icon ng-click="toOut()">&#xe652;</icon>
     </div>
 </header>
 <section class="views_member">
     <ul>
-        <li>
-            修改密码
+        <li ng-click="toPassword()">
+            <p>修改密码<icon>&#xe608;</icon></p>
         </li>
-        <li>
+        <li ng-show="tView.password" class="p10">
+            <div><input ng-model="tInput.password" placeholder="请输入当前密码" type="password" /></div>
+            <div><input ng-model="tInput.password1" placeholder="请输入当前密码" type="password" /></div>
+            <div><input ng-model="tInput.password2" placeholder="请输入当前密码" type="password" /></div>
+            <button ng-click="setPassword()">修改</button>
+        </li>
+        <!-- <li ng-click="toImage()">
             修改头像
-        </li>
+        </li> -->
     </ul>
 </section>
