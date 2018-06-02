@@ -60,10 +60,6 @@ Fm.controller('cMember', function (
                 $scope.tView.password = false;
                 $appueWidget.msgToast('密码更新成功');
                 $appueStorage.push($rootScope.setConfig.app, res.data);
-                // $timeout(function () {
-                //     $appueStorage.remove($rootScope.setConfig.app);
-                //     $state.go('fm.login');
-                // }, 1000);
             },
             failure: function (res) {
                 $appueWidget.msgToast(res.message);
