@@ -3,6 +3,7 @@ const widget   = require('../../components/widget');
 const $$       = require('../../components/dbhandler');
 const ObjectId = require('mongodb').ObjectId;
 
+// 获取节目详情
 exports.getProgramDetail = function (req, res, next) {
     if (!req || !req.body || !req.body.pid) {
         res.json(widget.setReponse('03'));

@@ -3,6 +3,7 @@ const widget   = require('../../components/widget');
 const $$       = require('../../components/dbhandler');
 const ObjectId = require('mongodb').ObjectId;
 
+// 获取评论信息
 exports.getComment = function (req, res, next) {
     if (!req.body.pid) {
         res.json(widget.setReponse('03'));

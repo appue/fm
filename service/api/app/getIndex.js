@@ -3,6 +3,7 @@ const widget   = require('../../components/widget');
 const $$       = require('../../components/dbhandler');
 const ObjectId = require('mongodb').ObjectId;
 
+// 获取首页信息
 exports.getIndex = function (req, res, next) {
     $$.find('comment', {state: {$ne: 1}}).then(raw => {
         let uids = [];

@@ -110,6 +110,9 @@ Fm.directive('viewLogin', function (
                         };
                         $appueStorage.push($rootScope.setConfig.app, res.data);
                         $scope.dView.show = false;
+                    },
+                    failure: function (res) {
+                        $appueWidget.msgToast(res.message);
                     }
                 });
             };

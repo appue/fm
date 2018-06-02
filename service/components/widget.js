@@ -27,7 +27,7 @@ module.exports = {
             }
 
             connect((dbo, db) => {
-                dbo.collection(cols).find({auth}).toArray((err, res) => {
+                dbo.collection(cols).find({auth, state:{$ne:1}}).toArray((err, res) => {
                     if (err) {
                         reject(err);
                         db.close();
@@ -106,7 +106,11 @@ module.exports = {
 
             case '05':
                 obj.code = 5;
-                ojb.message = '网络错误，请稍后重试';
+                obj.message = '网络错误，请稍后重试';
+
+            case '06':
+                obj.code = 6;
+                obj.message = '请确认您输入的账号是否正确';
         }
 
         return obj;

@@ -3,6 +3,7 @@ const widget   = require('../../components/widget');
 const $$       = require('../../components/dbhandler');
 const ObjectId = require('mongodb').ObjectId;
 
+// 发布评论
 exports.setComment = function (req, res, next) {
     widget.checkAuth(res, req, 'app').then(user => {
         const data = req.body;

@@ -2,6 +2,7 @@ const connect = require('../../db').connect;
 const widget  = require('../../components/widget');
 const $$      = require('../../components/dbhandler');
 
+// 获取节目列表
 exports.getProgram = function (req, res, next) {
     $$.find('program', {}).then(raw => {
         if (raw && !raw.length) {
